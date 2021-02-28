@@ -1,0 +1,43 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "./node_modules/.bin/encore dev --progress",
+    "watch": "./node_modules/.bin/encore dev --watch --progress",
+    "prod": "./node_modules/.bin/encore production --progress"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-syntax-class-properties": "^7.12.1",
+    "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
+    "@babel/plugin-transform-async-to-generator": "^7.12.1",
+    "@babel/plugin-transform-destructuring": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/register": "^7.12.10",
+    "@babel/runtime": "^7.12.5",
+    "@symfony/webpack-encore": "^0.33.0",
+    "autoprefixer": "^10.2.3",
+    "copy-webpack-plugin": "^7.0.0",
+    "cross-env": "^3.2.3",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "node-sass": "^5.0.0",
+    "postcss": "^8.2.4",
+    "postcss-cli": "^8.3.1",
+    "postcss-csso": "^5.0.0",
+    "postcss-loader": "^4.2.0",
+    "sass-loader": "^10.1.1",
+    "vee-validate": "^0.9.3",
+    "vue": "*",
+    "vue-loader": "^15.9.6",
+    "vue-style-loader": "^3.0.3",
+    "vue-template-compiler": "^2.6.12",
+    "webpack-encoding-plugin": "^0.3.1"
+  },
+  "dependencies": {
+    "bootstrap": "5.0.0-beta1"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "safari >= 7"
+  ]
+}

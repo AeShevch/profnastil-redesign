@@ -1,0 +1,2 @@
+<?=SITE_TEMPLATE_PATH?>
+
