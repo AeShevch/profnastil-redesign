@@ -1,12 +1,14 @@
 {
   "private": true,
   "scripts": {
-    "dev": "../../../../Users/aleksandrsevcenko/Downloads/local/node_modules/.bin/encore dev --progress",
-    "start": "../../../../Users/aleksandrsevcenko/Downloads/local/node_modules/.bin/encore dev --watch --progress",
-    "build": "../../../../Users/aleksandrsevcenko/Downloads/local/node_modules/.bin/encore production --progress"
+    "dev": "./node_modules/.bin/encore dev --progress",
+    "start": "./node_modules/.bin/encore dev --watch --progress",
+    "build": "./node_modules/.bin/encore production --progress"
   },
   "devDependencies": {
+    "@babel/cli": "^7.13.10",
     "@babel/core": "^7.12.10",
+    "@babel/node": "^7.13.10",
     "@babel/plugin-syntax-class-properties": "^7.12.1",
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
     "@babel/plugin-transform-async-to-generator": "^7.12.1",

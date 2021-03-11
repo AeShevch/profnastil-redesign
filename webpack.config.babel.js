@@ -1,6 +1,5 @@
 "use strict";
 const Encore = require("./webpackUtils/Encore.extend");
-const postcssLogical = require('postcss-logical');
 
 import path from "path";
 import FriendlyErrorsWebpackPlugin from "friendly-errors-webpack-plugin";
@@ -9,7 +8,7 @@ import FriendlyErrorsWebpackPlugin from "friendly-errors-webpack-plugin";
 import BComponent from "./webpackUtils/BComponent";
 
 const PATH_TO_ROOT = "..";
-const TEMPLATE_NAME = "b2b-shop";
+const TEMPLATE_NAME = "profnastil-redesign";
 const TEMPLATE_PATH = `local/templates/${TEMPLATE_NAME}`;
 
 const rootPath = (p = "") => {
@@ -28,88 +27,10 @@ Encore.setOutputPath(PATH_TO_ROOT)
   // файлы выхода (out) надо указывать без расширения
 
   // Компонент выбора города
-  .BXComponentJs("nbc:city-select")
-  .BXComponentStyle("nbc:city-select")
+  .BXComponentJs("pfn:city-select")
+  .BXComponentStyle("pfn:city-select")
 
-  // Компонент «Верхнее меню»
-  .BXComponentStyle("bitrix:menu", {
-    siteTemplate: ".default",
-    template: "menu.header-top",
-  })
-
-  // Компонент «Поиск в шапке»
-  .BXComponentStyle("bitrix:search.form", {
-    siteTemplate: ".default"
-  })
-
-  // Компонент «Главное меню»
-  .BXComponentStyle("bitrix:menu", {
-    siteTemplate: ".default",
-    template: "menu.main",
-  })
-
-  // Компонент «Меню каталога»
-  .BXComponentStyle("bitrix:menu", {
-    siteTemplate: ".default",
-    template: "menu.catalog",
-  })
-  .BXComponentJs("bitrix:menu", {
-    siteTemplate: ".default",
-    template: "menu.catalog",
-  })
-
-  // Компонент «Вертикальное меню»
-  .BXComponentStyle("bitrix:menu", {
-    siteTemplate: ".default",
-    template: "menu.vertical",
-  })
-
-  // Компонент «Мобильное меню»
-  .BXComponentStyle("bitrix:menu", {
-    siteTemplate: ".default",
-    template: "vue-navigation",
-  })
-  .BXComponentJs("bitrix:menu", {
-    siteTemplate: ".default",
-    template: "vue-navigation",
-  })
-
-  // Компонент «Слайдер на главной»
-  .BXComponentStyle("bitrix:news.list", {
-    siteTemplate: ".default",
-    template: "shop-main-slider",
-  })
-  .BXComponentJs("bitrix:news.list", {
-    siteTemplate: ".default",
-    template: "shop-main-slider",
-  })
-
-  // Готовые решения на главной
-  .BXComponentStyle("nbc:solutions-tabs")
-
-  // Лучшие предложения на главной
-  .BXComponentStyle("bitrix:catalog.top", {
-    siteTemplate: ".default",
-    template: "best-offers",
-  })
-
-  // Компонент выбора города
-  .BXComponentJs("nbc:staff-carousel")
-  .BXComponentStyle("nbc:staff-carousel")
-
-  // Отдельный фильтр (На главной)
-  .BXComponentStyle("bitrix:catalog.smart.filter", {
-    siteTemplate: ".default",
-    template: "separate-filter",
-  })
-
-  .enablePostCssLoader((options) => {
-    options.postcssOptions = {
-      // plugins: () => [
-      //   postcssLogical
-      // ]
-    };
-  })
+  .enablePostCssLoader()
   .enableSassLoader()
   .enableVueLoader()
   .enableSourceMaps(!Encore.isProduction())
