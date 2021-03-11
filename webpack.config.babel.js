@@ -12,80 +12,91 @@ const TEMPLATE_NAME = "profnastil-redesign";
 const TEMPLATE_PATH = `local/templates/${TEMPLATE_NAME}`;
 
 const rootPath = (p = "") => {
-  const root = path.resolve(__dirname, PATH_TO_ROOT);
-  return root + p;
+    const root = path.resolve(__dirname, PATH_TO_ROOT);
+    return root + p;
 };
 
-Encore.BXComponent = new BComponent({ root: rootPath() });
+Encore.BXComponent = new BComponent({root: rootPath()});
 
 process.noDeprecation = true;
 
 Encore.setOutputPath(PATH_TO_ROOT)
-  .setPublicPath(rootPath())
+    .setPublicPath(rootPath())
 
-  // Подключение компонентов в сборку webpack
-  // файлы выхода (out) надо указывать без расширения
+    // Подключение компонентов в сборку webpack
+    // файлы выхода (out) надо указывать без расширения
 
-  // Компонент выбора города
-  .BXComponentJs("pfn:city-select")
-  .BXComponentStyle("pfn:city-select")
+    // Компонент выбора города
+    .BXComponentJs("pfn:city-select")
+    .BXComponentStyle("pfn:city-select")
 
-  .enablePostCssLoader()
-  .enableSassLoader()
-  .enableVueLoader()
-  .enableSourceMaps(!Encore.isProduction())
+    // Компонент «Верхнее меню»
+    .BXComponentStyle("bitrix:menu", {
+        siteTemplate: ".default",
+        template: "menu.header-top",
+    })
 
-  .addLoader({
-    test: /\.(woff|woff2|eot|ttf|otf)$/,
-    use: [
-      {
-        loader: "file-loader",
-      },
-    ],
-  })
+    // Компонент «Поиск в шапке»
+    .BXComponentStyle("bitrix:search.form", {
+        siteTemplate: ".default"
+    })
 
-  // если сайт работает в cp1251, то подключаем этот плагин,
-  // при этом все файлы для сборки (.js, .sass, .css и пр) должны быть в utf-8, плагин сам их конвертит при сборке
-  // .addPlugin(new EncodingPlugin({encoding: "cp1251"}))
-  .addPlugin(new FriendlyErrorsWebpackPlugin({ clearConsole: true }));
+    .enablePostCssLoader()
+    .enableSassLoader()
+    .enableVueLoader()
+    .enableSourceMaps(!Encore.isProduction())
+
+    .addLoader({
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+            {
+                loader: "file-loader",
+            },
+        ],
+    })
+
+    // если сайт работает в cp1251, то подключаем этот плагин,
+    // при этом все файлы для сборки (.js, .sass, .css и пр) должны быть в utf-8, плагин сам их конвертит при сборке
+    // .addPlugin(new EncodingPlugin({encoding: "cp1251"}))
+    .addPlugin(new FriendlyErrorsWebpackPlugin({clearConsole: true}));
 
 const config = Encore.getWebpackConfig();
 
 if (!config.resolve.hasOwnProperty("modules")) {
-  config.resolve = Object.assign({}, config.resolve, {
-    modules: [
-      rootPath("/local/src/js"),
-      "node_modules", // указываем папку, откуда брать основные либы, иначе будут косяки
-    ],
-  });
+    config.resolve = Object.assign({}, config.resolve, {
+        modules: [
+            rootPath("/local/src/js"),
+            "node_modules", // указываем папку, откуда брать основные либы, иначе будут косяки
+        ],
+    });
 
-  config.stats = Object.assign({}, config.stats, {
-    hash: false,
-    version: false,
-    timings: false,
-    assets: true,
-    chunks: true,
-    maxModules: 0,
-    modules: true,
-    children: false,
-    source: false,
-    errors: false,
-    errorDetails: false,
-    warnings: false,
-    // publicPath: true,
-    colors: true,
-    entrypoints: true,
-    performance: true,
-    reasons: true,
-  });
+    config.stats = Object.assign({}, config.stats, {
+        hash: false,
+        version: false,
+        timings: false,
+        assets: true,
+        chunks: true,
+        maxModules: 0,
+        modules: true,
+        children: false,
+        source: false,
+        errors: false,
+        errorDetails: false,
+        warnings: false,
+        // publicPath: true,
+        colors: true,
+        entrypoints: true,
+        performance: true,
+        reasons: true,
+    });
 }
 
-config.performance = { hints: false };
+config.performance = {hints: false};
 
 // Добавляем шаблон
 config.entry[
-  `${TEMPLATE_PATH}/dist/bundle.min`
-] = `${rootPath()}/${TEMPLATE_PATH}/src/js/app.js`;
+    `${TEMPLATE_PATH}/dist/bundle.min`
+    ] = `${rootPath()}/${TEMPLATE_PATH}/src/js/app.js`;
 
 // fs.writeFileSync('./encore_conf.txt', JSON.stringify(config.plugins));
 // console.info(config.plugins);

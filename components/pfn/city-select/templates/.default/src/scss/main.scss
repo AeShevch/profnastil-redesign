@@ -1,4 +1,12 @@
-.test {
-  color: red;
-  display: flex;
+.city-select {
+  font-size: 1rem;
+
+  &__icon {
+    width: 1.5em;
+    height: 1.5em;
+  }
+  &__field {
+    text-decoration: underline;
+    font-weight: 700;
+  }
 }

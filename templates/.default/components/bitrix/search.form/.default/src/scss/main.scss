@@ -1,0 +1,42 @@
+@import "../../../../../../../profnastil-redesign/src/scss/1-vendors/bootstrap-custom";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.search-form {
+  position: relative;
+  display: flex;
+  margin-bottom: 0;
+  height: var(--header-elements-height);
+
+  &__input {
+    flex-grow: 1;
+    padding-right: 35px;
+    border-color: var(--main);
+    border-radius: var(--base-radius);
+  }
+
+  &__button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    padding: 2px;
+    background-color: var(--secondary);
+    border-radius: var(--base-radius);
+    transform: translateY(-50%);
+    transition: background-color var(--transition-time);
+
+    @include media-breakpoint-up(xl) {
+      right: 4px;
+    }
+
+    &:hover {
+      background-color: var(--main);
+    }
+
+    svg {
+      fill: var(--white);
+    }
+  }
+
+}

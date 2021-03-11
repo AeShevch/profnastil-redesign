@@ -14,10 +14,10 @@ $arrCity = [
 ];
 ?>
 <div class="city-select icon-row">
-  <svg class="city-select__icon icon-row__icon" width="16" height="16">
+  <svg class="city-select__icon icon-row__icon" width="21" height="21">
       <use xlink:href="#icon_pointer"></use>
   </svg>
-  <select class="city-select__field icon-row__text select-reset me-4"
+  <select class="city-select__field icon-row__text select-reset"
           name="REGION"
           id="user-region"
           onchange="this.form.submit();"

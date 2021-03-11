@@ -1,0 +1,19 @@
+.button {
+  @include resetBtn;
+  white-space: nowrap;
+  display: inline-flex;
+
+  &_secondary {
+    background-color: var(--secondary);
+    border-radius: var(--base-radius);
+    color: var(--white);
+    font-weight: 700;
+    padding: 1em 2em;
+    text-decoration: none;
+    transition: color var(--transition-time) ease-in-out;
+
+    &:hover {
+      color: var(--main);
+    }
+  }
+}
