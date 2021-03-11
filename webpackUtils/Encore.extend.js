@@ -41,7 +41,7 @@ Encore.BXComponentJs = (name, params = {}) => {
   }
 
   // получаем точки вход/выход
-  let entry = Encore.BXComponent.getEntry(name, paramsJs);
+  const entry = Encore.BXComponent.getEntry(name, paramsJs);
 
   // добавляем в Encore точку входа
   return Encore.addEntry(entry.build, entry.app);

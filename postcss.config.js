@@ -1,8 +1,10 @@
 module.exports = {
   plugins: {
     // include whatever plugins you want
-    // but make sure you install these via yarn or npm!
-    // add browserslist config to package.json (see below)
+    // but make sure you install these via npm!
+    'postcss-logical': {},
+    'postcss-flexbugs-fixes': {},
+    'postcss-animation': {},
     autoprefixer: {},
     'postcss-csso': {}
   }

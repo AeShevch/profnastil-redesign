@@ -106,9 +106,13 @@ class BComponent {
 	 */
 	getEntry(ComponentName, params) {
 		try {
-			if(!this.components.hasOwnProperty(ComponentName)){
-				this._add(ComponentName, params, 'js');
-			} else if (!this.components[ComponentName].hasOwnProperty('js')){
+			if(
+				// TODO !!!
+				!this.components.hasOwnProperty(ComponentName) ||
+				!this.components[ComponentName].hasOwnProperty("js") ||
+				(this.components.hasOwnProperty(ComponentName) &&
+					this.components[ComponentName].hasOwnProperty("js"))
+			){
 				this._add(ComponentName, params, 'js');
 			}
 
