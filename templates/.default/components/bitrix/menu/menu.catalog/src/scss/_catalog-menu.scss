@@ -1,0 +1,107 @@
+.catalog-menu {
+  position: absolute;
+  bottom: 0;
+  font-size: 1rem;
+
+  &__button {
+    width: 130px; // logo width
+    height: var(--header-elements-height);
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 12px;
+      background: var(--main);
+      z-index: 9999;
+      top: 100%;
+      clip-path: polygon(0 0, 50% 100%, 100% 0);
+
+      animation-duration: var(--base-animation-time);
+      animation-fill-mode: both;
+      opacity: 0;
+      visibility: visible;
+    }
+
+    &.show {
+      &:after {
+        animation-name: fadeInDown;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &__dropdown {
+    @include media-breakpoint-up(lg) {
+      // 3 колонки минус два отступа
+      width: calc(var(--container-width) / 4 - var(--base-gutter));
+    }
+
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin-top: -1px!important;
+
+    display: block !important;
+    visibility: hidden;
+    opacity: 0;
+
+    &_mobile {
+      bottom: 0!important;
+    }
+
+    &.show {
+      visibility: visible;
+      opacity: 1;
+      animation-name: zoomIn;
+    }
+
+    .left-menu {
+      margin-top: var(--bs-gutter-x);
+
+      &-item {
+        //&:first-child {
+        //  &:before {
+        //    position: absolute;
+        //    right: 1em;
+        //    top: 0;
+        //    left: 1.4em;
+        //    height: 1px;
+        //    background-color: var(--border-color);
+        //    content: "";
+        //  }
+        //}
+      }
+    }
+  }
+}
+
+body {
+  &.menu-is-opened {
+    &:after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, .7);
+      animation-name: fadeIn;
+      animation-duration: var(--base-animation-time);
+      animation-fill-mode: both;
+    }
+  }
+}
+
+.header__main_sticky {
+  .catalog-menu {
+    &__dropdown {
+      animation-duration: var(--base-animation-time);
+      animation-fill-mode: both;
+      overflow: visible;
+    }
+  }
+}

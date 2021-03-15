@@ -1,0 +1,35 @@
+.menu-user-block {
+  &__item {
+    margin: 1rem 0;
+    text-decoration: none;
+    font-size: 12px;
+    display: inline-block;
+
+    @media (max-width: 320px) {
+      font-size: 11px;
+    }
+
+    &_personal {
+      font-weight: 600;
+      color: var(--gray-text-color);
+
+      svg {
+        fill: var(--medium-gray);
+      }
+    }
+
+    &_registration {
+      color: var(--muted-text-color);
+    }
+
+    &_order-list {
+      color: var(--links-color);
+      border-bottom: 1px dashed currentColor;
+    }
+
+    &_bonuses {
+      color: var(--links-color);
+      font-size: .85em;
+    }
+  }
+}

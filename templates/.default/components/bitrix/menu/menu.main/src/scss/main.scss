@@ -1,0 +1,38 @@
+.main-menu {
+  font-size: 1rem;
+
+  &__list {
+    display: flex;
+  }
+
+  &__item {
+    padding: 8px 0 9px;
+
+    &:not(:last-of-type) {
+      margin-right: 2.5em;
+    }
+  }
+
+  &__link {
+    color: var(--main-menu-text-color);
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover,
+    &[aria-current="page"] {
+      color: var(--accent);
+    }
+
+    &_faq {
+      color: var(--secondary);
+      padding-right: 2.5em;
+      position: relative;
+    }
+  }
+
+  &__faq-icon {
+    position: absolute;
+    width: 2em;
+    right: 0;
+  }
+}

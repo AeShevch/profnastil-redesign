@@ -1,9 +1,14 @@
-import "../scss/main.scss"
+import "../scss/main.scss";
+import Vue from "vue";
+import { Tab } from "bootstrap";
+import FixedHeader from "./fixed-header/fixed-header";
+import stopPropagationOnElements from "./utils/stopPropagationOnElements";
 
-class Test {
-  constructor(val) {
-    this._val = val;
-  }
-}
+window.Vue = Vue;
+document.addEventListener(`DOMContentLoaded`, () => {
+  // Fixing the header
+  new FixedHeader().init();
 
-new Test("aasd");
+  // Stop propagation on specified elements
+  stopPropagationOnElements(`.js-stop-propagation-click`, `click`);
+});

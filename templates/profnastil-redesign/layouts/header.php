@@ -80,7 +80,7 @@
                             <span class="hamburger__box" aria-hidden="true">
                               <span class="hamburger__inner"></span>
                             </span>
-                            <span>Каталог</span>
+                            <span><b>Каталог</b></span>
                         </button>
                         <div class="catalog-menu__dropdown dropdown-menu js-catalog-dropdown"
                              aria-labelledby="dropdownMenuButton">

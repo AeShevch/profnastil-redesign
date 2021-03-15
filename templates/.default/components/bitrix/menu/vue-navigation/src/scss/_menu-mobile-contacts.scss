@@ -1,0 +1,21 @@
+.menu-mobile-contacts {
+  font-size: 1em;
+  margin: .5em 0;
+
+  &__item {
+    & + & {
+      margin-top: .85em;
+    }
+  }
+
+  &__link {
+    color: var(--gray-text-color);
+    font-weight: 600;
+    text-decoration: none;
+
+    svg {
+      margin-right: .7em;
+      fill: var(--accent);
+    }
+  }
+}

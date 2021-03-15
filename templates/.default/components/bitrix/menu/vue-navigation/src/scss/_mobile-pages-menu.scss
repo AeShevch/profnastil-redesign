@@ -1,0 +1,24 @@
+.mobile-pages-menu {
+  font-size: 12px;
+
+  &__title {
+    color: var(--muted-text-color);
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+
+  &__item {
+    font-size: 1em;
+    padding: 8px 0;
+
+    & + & {
+      border-top: 1px solid var(--border-color);
+    }
+  }
+
+  &__link {
+    display: block;
+    color: var(--base-text-color);
+    text-decoration: none;
+  }
+}

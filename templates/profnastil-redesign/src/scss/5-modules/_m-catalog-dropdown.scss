@@ -1,0 +1,12 @@
+$headerHeight: 43px;
+.m-catalog-dropdown {
+  height: calc(100vh - #{$headerHeight});
+  overflow-y: auto;
+  overflow-x: hidden;
+  overflow-scrolling: touch;
+  -webkit-overflow-scrolling: touch;
+
+  &.show {
+    //animation: slideInLeft 500ms;
+  }
+}

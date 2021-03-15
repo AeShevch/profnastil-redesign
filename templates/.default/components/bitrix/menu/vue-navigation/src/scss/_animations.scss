@@ -1,0 +1,61 @@
+// # Sliding animations
+.slide-left-leave,
+.slide-left-leave-to,
+.slide-right-leave,
+.slide-right-leave-to {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  visibility: hidden;
+}
+
+.slide-left-enter-active {
+  animation: slide-in-left 200ms;
+}
+.slide-left-leave-active {
+  animation: slide-out-left 200ms;
+}
+
+.slide-right-enter-active {
+  animation: slide-in-right 200ms;
+}
+.slide-right-leave-active {
+  animation: slide-out-right 200ms;
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translate3d(100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slide-out-left {
+  0% {
+    visibility: visible;
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slide-out-right {
+  0% {
+    visibility: visible;
+  }
+  100% {
+    transform: translate3d(100%, 0, 0);
+  }
+}

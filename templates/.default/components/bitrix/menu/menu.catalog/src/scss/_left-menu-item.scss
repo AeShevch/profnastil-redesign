@@ -1,0 +1,96 @@
+$leftOffset: 1.4em;
+$rightOffset: .9em;
+
+.left-menu-item {
+  $self: &;
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.2;
+
+  @include media-breakpoint-up(lg) {
+    &:hover,
+    &:focus-within {
+      #{$self}__popup {
+        display: block;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  &:not(:last-of-type) {
+    #{$self}__link:after {
+      position: absolute;
+      right: $rightOffset;
+      bottom: 0;
+      left: $leftOffset;
+      height: 1px;
+      background-color: var(--border-color);
+      content: "";
+    }
+  }
+
+  // Последние два подменю прижимаем к низу меню
+  &:nth-last-of-type(-n+3) {
+    position: static;
+
+    #{$self}__popup {
+      top: auto;
+      bottom: 0;
+    }
+  }
+
+  &__title {
+    text-transform: lowercase;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  &__link {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 0 $rightOffset 0 calc(#{$leftOffset} - 3px);
+    min-height: 3.5em;
+    border-left: 3px solid transparent;
+    border-bottom-left-radius: var(--base-radius);
+    border-top-left-radius: var(--base-radius);
+    color: var(--base-text-color);
+    text-decoration: none;
+    transition-property: color, border-color, background-color;
+    transition-duration: var(--transition-time);
+    transition-timing-function: var(--transition-timing-function);
+    width: 100%;
+
+    &:hover,
+    &:active,
+    &[aria-current="page"] {
+      background-color: var(--hover-bg-color);
+      border-color: currentColor;
+      color: var(--accent);
+    }
+  }
+
+  &__icon {
+    width: 1.75em;
+    height: 1.75em;
+    margin-right: .85em;
+    mix-blend-mode: multiply;
+    object-fit: contain;
+  }
+
+  &__popup {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    z-index: 1;
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity var(--transition-time);
+  }
+}
+
+

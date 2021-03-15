@@ -36,9 +36,35 @@ Encore.setOutputPath(PATH_TO_ROOT)
         template: "menu.header-top",
     })
 
+    // Компонент «Главное меню»
+    .BXComponentStyle("bitrix:menu", {
+        siteTemplate: ".default",
+        template: "menu.main",
+    })
+
+    // Компонент «Меню каталога»
+    .BXComponentStyle("bitrix:menu", {
+        siteTemplate: ".default",
+        template: "menu.catalog",
+    })
+    .BXComponentJs("bitrix:menu", {
+        siteTemplate: ".default",
+        template: "menu.catalog",
+    })
+
     // Компонент «Поиск в шапке»
     .BXComponentStyle("bitrix:search.form", {
         siteTemplate: ".default"
+    })
+
+    // Компонент «Мобильное меню»
+    .BXComponentStyle("bitrix:menu", {
+        siteTemplate: ".default",
+        template: "vue-navigation",
+    })
+    .BXComponentJs("bitrix:menu", {
+        siteTemplate: ".default",
+        template: "vue-navigation",
     })
 
     .enablePostCssLoader()

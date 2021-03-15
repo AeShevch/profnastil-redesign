@@ -1,0 +1,25 @@
+.logo {
+  $self: &;
+
+  &__link {
+    max-width: 100%;
+    display: block;
+  }
+
+  &__image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &_mini {
+    display: none;
+    width: $miniLogoImageWidth;
+    height: var(--header-elements-height);
+
+    #{$self}__image {
+      height: 100%;
+      width: auto;
+      margin-top: 1px;
+    }
+  }
+}

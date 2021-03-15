@@ -8,6 +8,9 @@
   --main: var(--yellow);
   --accent: var(--red);
   --secondary: var(--black);
+  --border-color: var(--gray);
+  --links-color: var(--blue);
+  --main-bg-color: var(--light-gray-2);
 
   // Typography
   --base-font-size: 14px;
@@ -17,14 +20,17 @@
   --bs-font-sans-serif: var(--base-font);
 
   // Shadows
-  --base-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  --large-shadow: 0 4px 32px rgba(0, 0, 0, 0.16);
+  --base-shadow: 0 .3em .85em rgba(0, 0, 0, 0.12);
+  --large-shadow: 0 .3em 2em rgba(0, 0, 0, 0.16);
+  --focus-shadow: 0 0 0 0.25rem rgba(13, 110, 253, .25);
 
   // Border radius
   --base-radius: 3px;
+  --big-radius: 5px;
 
   // Transition
   --transition-time: .3s;
+  --transition-time-long: .5s;
 
   // Scrollbar
   --scrollbar-color: var(--accent);
@@ -35,10 +41,17 @@
   --base-gutter: 1.5rem;
 
   // Header
+  --top-header-bg-color: var(--dark-gray);
+  --top-header-text-color: var(--white);
   --main-menu-text-color: var(--dark-gray);
   --main-menu-hover-text-color: var(--accent);
   --header-elements-height: 2.625em;
 
   // Left menu
   --hover-bg-color: var(--light-blue);
+
+  // Animation
+  --base-animation-time: .5s;
 }
+
+$miniLogoImageWidth: 2.3125rem;

@@ -1,0 +1,23 @@
+.mobile-main-nav {
+  overflow: hidden;
+
+  &__levels {
+    position: relative;
+  }
+
+  &__level {
+    transition: transform 210ms;
+  }
+
+  &__heading {
+  }
+
+  &__list {
+  }
+
+  &__btn-up,
+  &__link {
+    display: block;
+    width: 100%;
+  }
+}
