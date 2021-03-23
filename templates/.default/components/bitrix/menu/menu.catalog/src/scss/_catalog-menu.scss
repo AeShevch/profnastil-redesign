@@ -1,10 +1,10 @@
 .catalog-menu {
   position: absolute;
-  bottom: 0;
+  bottom: 1em;
   font-size: 1rem;
 
   &__button {
-    width: 130px; // logo width
+    width: 170px; // logo width
     height: var(--header-elements-height);
     position: relative;
 

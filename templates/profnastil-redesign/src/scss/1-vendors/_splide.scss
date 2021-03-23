@@ -1,0 +1,8 @@
+@import "~@splidejs/splide/dist/css/splide.min.css";
+
+.splide {
+  &__slide {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -67,6 +67,22 @@ Encore.setOutputPath(PATH_TO_ROOT)
         template: "vue-navigation",
     })
 
+    // Компонент «Карусель товаров»
+    // .BXComponentStyle("bitrix:menu", {
+    //     siteTemplate: ".default",
+    //     template: "products-carousel",
+    // })
+    .BXComponentJs("bitrix:catalog.top", {
+        siteTemplate: ".default",
+        template: "products-carousel",
+    })
+
+    // Миникарточка товара
+    .BXComponentStyle("bitrix:catalog.item", {
+        siteTemplate: ".default",
+        template: "mini-product",
+    })
+
     .enablePostCssLoader()
     .enableSassLoader()
     .enableVueLoader()

@@ -13,7 +13,7 @@ $this->setFrameMode(true);
          aria-label="Поиск по сайту">
   <button class="search-form__button" type="submit"
           name="s" aria-label="Найти">
-    <svg width="24" height="24" aria-hidden="true">
+    <svg width="25" height="25" aria-hidden="true">
       <use xlink:href="#icon_search"></use>
     </svg>
   </button>

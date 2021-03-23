@@ -1,13 +1,19 @@
-.l-header {
+.header {
   margin-bottom: var(--base-gutter);
   position: relative;
   z-index: 1;
+  background-color: var(--white);
+  border-bottom: 6px solid var(--light-gray);
+  padding-bottom: 1em;
 
   &__top {
     background-color: var(--main);
     padding: .5rem;
   }
 
+  &__button {
+    height: auto!important;
+  }
 
   &__main {
     padding: 16px 0 12px;

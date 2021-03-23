@@ -1,0 +1,17 @@
+.header-phone {
+  font-weight: 600;
+
+  &__link {
+    color: var(--base-text-color);
+    font-size: 1.285em;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline
+    }
+  }
+
+  &__back-ring {
+
+  }
+}

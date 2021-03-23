@@ -4,7 +4,6 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 }
 
 $this->setFrameMode(true);
-$isAuthorized = CUser::IsAuthorized();
 if (!empty($arResult)): ?>
   <nav class="main-menu" role="navigation" aria-label="Главное меню">
     <ul class="main-menu__list list-reset d-flex">

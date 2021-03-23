@@ -1,5 +1,7 @@
 // Vendors
 @import "1-vendors/bootstrap";
+@import "1-vendors/glide";
+@import "1-vendors/splide";
 
 // Abstracts
 @import "2-helpers/variables";
@@ -14,9 +16,10 @@
 @import "3-base/links";
 @import "3-base/selection-colors";
 @import "3-base/scrollbar";
+@import "3-base/s";
 
 // Layouts
-@import "4-layout/l-header";
+@import "4-layout/header";
 @import "4-layout/footer";
 
 // Modules
@@ -25,3 +28,8 @@
 @import "5-modules/hamburger";
 @import "5-modules/icon-row";
 @import "5-modules/m-catalog-dropdown";
+@import "5-modules/header-phone";
+@import "5-modules/header-link";
+@import "5-modules/calc-link";
+@import "5-modules/mini-cart";
+@import "5-modules/sale-banner";

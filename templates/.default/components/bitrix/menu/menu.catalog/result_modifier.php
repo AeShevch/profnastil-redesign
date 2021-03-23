@@ -3,11 +3,6 @@
 if (empty($arResult))
     return;
 
-echo "asdasdasdasdasdasd";
-echo "<pre>";
-print_r($arResult);
-echo "</pre>";
-
 if (isset($arParams["MENU_THEME"]) && !empty($arParams["MENU_THEME"]))
 {
     $arAvailableThemes = array();

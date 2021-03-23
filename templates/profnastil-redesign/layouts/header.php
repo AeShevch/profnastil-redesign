@@ -3,11 +3,11 @@
 /** @global $USER */
 ?>
 
-<header class="l-header">
-    <div class="l-header__top">
+<header class="header js-header-element d-none d-lg-block">
+    <div class="header__top">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-9">
+                <div class="col-8">
                     <div class="row align-items-center">
                         <div class="col-3">
                             <?php
@@ -37,24 +37,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-3">
-                    <div class="row">
-                        <div class="col-6">
-                            <a href="" download class="button button_secondary">
-                                Скачать прайс
-                            </a>
-                        </div>
-                        <div class="col-6">
-                            <a href="" class="button button_secondary">
-                                Личный кабинет
-                            </a>
-                        </div>
+                <div class="col-4">
+                    <div class="d-flex justify-content-end">
+                        <a href="" download class="me-2 ps-3 pe-3 header__button button button_secondary">
+                            Скачать прайс
+                        </a>
+                        <a href="" class="ps-3 pe-3 header__button button button_secondary">
+                            Личный кабинет
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="l-header__main js-fixed-header">
+    <div class="header__main js-fixed-header">
         <div class="container">
             <div class="row">
                 <div class="col-2 d-flex">
@@ -66,7 +62,7 @@
                                  class="logo__image"
                                  alt="Логотип «Профнастил»"
                                  loading="lazy"
-                                 width="150" height="55">
+                                 width="125" height="45">
                         </a>
                     </div>
                     <div class="catalog-menu js-catalog-dropdown-wrapper">
@@ -119,8 +115,40 @@
                     );
                     ?>
                 </div>
-                <div class="col-5 ps-4">
+                <div class="col-5">
                     <div class="row">
+                        <div class="col-4">
+                            <div class="header-phone">
+                                <a href="tel:+74242777566"
+                                   title="Позвонить нам"
+                                   class="header-phone__link">
+                                    +7 (4242) 777-566
+                                </a>
+                                <button class="header-phone__back-ring"
+                                        type="button">
+                                    Заказать звонок
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="header-work-time">
+                                <span>Звоните c 9 до 18</span><br>
+                                <span>Сб: c 9 до 16</span>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <a href="" class="calc-link ms-auto">
+                                <span class="calc-link__icon">
+                                    <svg width="26" height="30">
+                                        <use xlink:href="#icon_calc"></use>
+                                    </svg>
+                                </span>
+                                        <span class="calc-link__title">
+                                    Калькулятор
+                                </span>
+                            </a>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -128,10 +156,10 @@
     </div>
     <div class="header__bottom">
         <div class="container">
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="col-2"></div>
-                <div class="col">
-                    <div class="border-top">
+                <div class="col-5">
+                    <div class="">
                         <?php
                         // Главное меню
                         $APPLICATION->IncludeComponent(
@@ -151,6 +179,35 @@
                             false
                         );
                         ?>
+                    </div>
+                </div>
+                <div class="col-3 ms-auto">
+                    <div class="row">
+                        <div class="col-3 border-start border-2">
+                            <a href="" class="header-link">
+                                <svg width="38" height="38">
+                                    <use xlink:href="#icon_balance"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="col-3 border-start border-2">
+                            <a href="" class="header-link">
+                                <svg width="33" height="33">
+                                    <use xlink:href="#icon_heart"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="col-6 border-start border-2">
+                            <a href="" class="header-link mini-cart justify-content-start">
+                                <svg width="38" height="38">
+                                    <use xlink:href="#icon_cart"></use>
+                                </svg>
+                                <span class="mini-cart__inner">
+                                    <span class="mini-cart__title">Корзина</span>
+                                    <span class="mini-cart__price">22 000 р.</span>
+                                </span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

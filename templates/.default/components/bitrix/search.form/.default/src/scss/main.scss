@@ -7,7 +7,7 @@
   position: relative;
   display: flex;
   margin-bottom: 0;
-  height: var(--header-elements-height);
+  height: 100%;
 
   &__input {
     flex-grow: 1;
@@ -18,12 +18,12 @@
 
   &__button {
     position: absolute;
-    top: 50%;
+    top: 2px;
     right: 0;
-    padding: 2px;
+    bottom: 2px;
+    padding: 0 .7em;
     background-color: var(--secondary);
     border-radius: var(--base-radius);
-    transform: translateY(-50%);
     transition: background-color var(--transition-time);
 
     @include media-breakpoint-up(xl) {

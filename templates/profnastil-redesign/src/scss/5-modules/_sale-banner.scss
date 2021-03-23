@@ -1,0 +1,26 @@
+.sale-banner {
+  display: flex;
+  background-color: var(--white);
+  flex-direction: column;
+  flex-grow: 1;
+  text-decoration: none;
+
+  &__content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__title {
+    color: var(--muted-text-color);
+    font-weight: 600;
+  }
+
+  &__time {
+    font-size: 1.14em;
+    font-weight: 700;
+    color: var(--black);
+  }
+}
