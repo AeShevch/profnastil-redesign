@@ -26,9 +26,8 @@ Encore.setOutputPath(PATH_TO_ROOT)
     // Подключение компонентов в сборку webpack
     // файлы выхода (out) надо указывать без расширения
 
-    // Компонент выбора города
-    .BXComponentJs("pfn:city-select")
-    .BXComponentStyle("pfn:city-select")
+    // Заголовки кистью
+    .BXComponentStyle("pfn:brush-title")
 
     // Компонент «Верхнее меню»
     .BXComponentStyle("bitrix:menu", {
@@ -52,6 +51,12 @@ Encore.setOutputPath(PATH_TO_ROOT)
         template: "menu.catalog",
     })
 
+    // Компонент «Вертикальное меню»
+    .BXComponentStyle("bitrix:menu", {
+        siteTemplate: ".default",
+        template: "menu.vertical",
+    })
+
     // Компонент «Поиск в шапке»
     .BXComponentStyle("bitrix:search.form", {
         siteTemplate: ".default"
@@ -68,10 +73,10 @@ Encore.setOutputPath(PATH_TO_ROOT)
     })
 
     // Компонент «Карусель товаров»
-    // .BXComponentStyle("bitrix:menu", {
-    //     siteTemplate: ".default",
-    //     template: "products-carousel",
-    // })
+    .BXComponentStyle("bitrix:catalog.top", {
+        siteTemplate: ".default",
+        template: "products-carousel",
+    })
     .BXComponentJs("bitrix:catalog.top", {
         siteTemplate: ".default",
         template: "products-carousel",

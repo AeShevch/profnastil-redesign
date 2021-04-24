@@ -7,7 +7,9 @@ export default class CatalogDropdown {
     onShowCallback = () => {},
     onHideCallback = () => {}
   ) {
+    console.log(containerSelector);
     this._containerElement = document.querySelector(containerSelector);
+    console.log(this._containerElement);
     this._openButtonElement = this._containerElement.querySelector(
       togglerSelector
     );

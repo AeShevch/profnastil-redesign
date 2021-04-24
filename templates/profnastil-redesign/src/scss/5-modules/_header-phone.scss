@@ -3,8 +3,12 @@
 
   &__link {
     color: var(--base-text-color);
-    font-size: 1.285em;
+    font-size: 1em;
     text-decoration: none;
+
+    @include media-breakpoint-up(xxl) {
+      font-size: 1.285em;
+    }
 
     &:hover {
       text-decoration: underline

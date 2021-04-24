@@ -1,0 +1,37 @@
+.brush-stroke {
+  width: 100%;
+  display: inline-flex;
+  flex-wrap: nowrap;
+  font-size: 1.7rem;
+
+  @include media-breakpoint-up(sm) {
+    font-size: 2rem;
+  }
+
+  &__left,
+  &__right {
+    width: 1.7em;
+    height: 1.7em;
+  }
+
+  &__left {
+    fill: var(--main);
+  }
+
+  &__right {
+    fill: var(--main);
+  }
+
+  &__middle {
+    flex: 1;
+    background: var(--main);
+    line-height: 1;
+    font-weight: 700;
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    height: 1.57em;
+  }
+}

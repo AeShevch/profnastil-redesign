@@ -1,0 +1,141 @@
+@import "../../../../../../../profnastil-redesign/src/scss/1-vendors/bootstrap-custom";
+@import "../../../../../../../profnastil-redesign/src/scss/2-helpers/mixins";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+.product-carousel {
+  font-size: 1rem;
+  margin-bottom: 4.3em;
+
+  &__title {
+    font-size: 1.7em;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+  }
+
+  &__header {
+    display: flex;
+    margin-bottom: 2.5em;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border-color);
+    flex-direction: column;
+
+    @include media-breakpoint-up(lg) {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  &__see-all {
+    color: var(--base-text-color);
+    font-size: .9em;
+    line-height: 1;
+    text-decoration: underline;
+    font-weight: 700;
+
+    @include media-breakpoint-up(md) {
+      margin-right: 4em;
+      font-size: 1.14em;
+    }
+
+    @include media-breakpoint-up(lg) {
+      margin-left: auto;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-self: flex-end;
+    margin-top: -2em;
+    font-size: 0.7em;
+
+    @include media-breakpoint-up(md) {
+      font-size: 1em;
+    }
+
+    @include media-breakpoint-up(lg) {
+      align-items: center;
+      margin-top: 0;
+
+    }
+  }
+
+  &__control {
+    width: 3.57em;
+    height: 3.57em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    border-radius: var(--base-radius);
+    transition: background-color var(--transition-time);
+
+    &:hover {
+      background-color: var(--main);
+    }
+
+    & + & {
+      margin-left: .7em;
+    }
+
+    &_right {
+      svg {
+        transform: rotate(0.5turn);
+      }
+    }
+
+    @include focus;
+  }
+
+  &__tablist {
+    display: flex;
+    font-size: 1.14em;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    overflow-x: auto;
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__tab {
+    color: var(--muted-text-color);
+    padding-bottom: 1em;
+    font-size: 0.9em;
+    border-bottom: 2px solid transparent;
+    transition: var(--transition-time);
+    white-space: nowrap;
+
+    @include media-breakpoint-up(md) {
+      font-weight: 700;
+    }
+
+    @include media-breakpoint-up(lg) {
+      font-size: 1em;
+      padding-bottom: 2em;
+      border-width: 4px;
+    }
+
+    & + & {
+      margin-left: 1em;
+
+      @include media-breakpoint-up(md) {
+        margin-left: 2.5em;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      color: var(--main-text-color);
+      outline: none;
+    }
+
+    &[aria-selected="true"] {
+      color: var(--main-text-color);
+      border-color: currentColor;
+    }
+  }
+}

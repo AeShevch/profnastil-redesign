@@ -1,0 +1,22 @@
+.footer-contact {
+  display: flex;
+  margin-bottom: 2.35em;
+
+  &__inner {
+    margin-right: 1.5em;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__link {
+    font-size: 1.42em;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  &__button {
+    text-decoration: underline;
+    color: var(--main);
+    text-align: left;
+  }
+}

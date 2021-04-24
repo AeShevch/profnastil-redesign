@@ -1,0 +1,20 @@
+.page-description {
+  background-color: var(--white);
+  padding: 5em 0 3em;
+
+  &__title {
+    font-weight: 700;
+    margin-bottom: 1em;
+    font-size: 1.7em;
+  }
+
+  &__content {
+    line-height: 1.78;
+
+    @include media-breakpoint-up(md) {
+      column-width: 48%;
+      column-count: 2;
+      column-gap: 4%;
+    }
+  }
+}

@@ -2,6 +2,7 @@
   // Colors
   --yellow: #FFDA33;
   --black: #000000;
+  --black-blue: #111E24;
   --red: #F44336;
   --white: #fff;
   --light-gray: #eceff1;
@@ -12,11 +13,21 @@
   --accent: var(--red);
   --secondary: var(--black);
   --border-color: var(--light-gray);
+  --border-on-dark-color: #5d686e;
   --links-color: var(--blue);
   --main-bg-color: var(--light-gray-2);
 
   // Typography
-  --base-font-size: 14px;
+  --base-font-size: 12px;
+
+  @include media-breakpoint-up(lg) {
+    --base-font-size: 13px;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    --base-font-size: 14px;
+  }
+
   --base-line-hight: 1.357;
   --base-text-color: var(--black);
   --muted-text-color: var(--gray);
@@ -35,6 +46,7 @@
   // Transition
   --transition-time: .3s;
   --transition-time-long: .5s;
+  --transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);
 
   // Scrollbar
   --scrollbar-color: var(--accent);
@@ -56,6 +68,10 @@
 
   // Animation
   --base-animation-time: .5s;
+
+  // Footer
+  --footer-bg: var(--black-blue);
+  --footer-border-color: #494949;
 }
 
 $miniLogoImageWidth: 2.3125rem;

@@ -3,18 +3,13 @@
 /** @global $USER */
 ?>
 
-<header class="header js-header-element d-none d-lg-block">
+<header class="header js-header-element d-none d-lg-block" id="header">
     <div class="header__top">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-8">
                     <div class="row align-items-center">
-                        <div class="col-3">
-                            <?php
-                            // Компонент «Выбор города»
-                            $APPLICATION->IncludeComponent("pfn:city-select", ".default"); ?>
-                        </div>
-                        <div class="col-9">
+                        <div class="col-12">
                             <?php
                             // Верхнее меню
                             $APPLICATION->IncludeComponent(
@@ -81,28 +76,30 @@
                         <div class="catalog-menu__dropdown dropdown-menu js-catalog-dropdown"
                              aria-labelledby="dropdownMenuButton">
                             <? $APPLICATION->IncludeComponent(
-                                "bitrix:menu",
-                                "menu.catalog",
-                                array(
-                                    "ROOT_MENU_TYPE" => "left",
-                                    "MENU_CACHE_TYPE" => "A",
-                                    "MENU_CACHE_TIME" => "36000000",
-                                    "MENU_CACHE_USE_GROUPS" => "Y",
-                                    "MENU_THEME" => "site",
-                                    "CACHE_SELECTED_ITEMS" => "N",
-                                    "MENU_CACHE_GET_VARS" => array(),
-                                    "MAX_LEVEL" => "3",
-                                    "CHILD_MENU_TYPE" => "left",
-                                    "USE_EXT" => "Y",
-                                    "DELAY" => "N",
-                                    "ALLOW_MULTI_SELECT" => "N",
+                            "bitrix:menu",
+                            "menu.catalog",
+                            array(
+                                "MENU_CACHE_TYPE" => "A",
+                                "MENU_CACHE_TIME" => "36000000",
+                                "MENU_CACHE_USE_GROUPS" => "N",
+                                "MENU_THEME" => "site",
+                                "CACHE_SELECTED_ITEMS" => "N",
+                                "MENU_CACHE_GET_VARS" => array(
                                 ),
-                                false
-                            ); ?>
+                                "MAX_LEVEL" => "3",
+                                "CHILD_MENU_TYPE" => "left",
+                                "USE_EXT" => "Y",
+                                "DELAY" => "N",
+                                "ALLOW_MULTI_SELECT" => "N",
+                                "COMPONENT_TEMPLATE" => "menu.catalog",
+                                "ROOT_MENU_TYPE" => "left"
+                            ),
+                            false
+                        ); ?>
                         </div>
                     </div>
                 </div>
-                <div class="col-5">
+                <div class="col-4 col-xxl-5">
                     <?php
                     $APPLICATION->IncludeComponent(
                         "bitrix:search.form",
@@ -115,8 +112,8 @@
                     );
                     ?>
                 </div>
-                <div class="col-5">
-                    <div class="row">
+                <div class="col-6 col-xxl-5">
+                    <div class="row align-items-center">
                         <div class="col-4">
                             <div class="header-phone">
                                 <a href="tel:+74242777566"
@@ -130,20 +127,20 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="col-3">
+                        <div class="col-4 col-xl-3">
                             <div class="header-work-time">
                                 <span>Звоните c 9 до 18</span><br>
                                 <span>Сб: c 9 до 16</span>
                             </div>
                         </div>
-                        <div class="col-5">
+                        <div class="col-4 col-xl-5">
                             <a href="" class="calc-link ms-auto">
                                 <span class="calc-link__icon">
                                     <svg width="26" height="30">
                                         <use xlink:href="#icon_calc"></use>
                                     </svg>
                                 </span>
-                                        <span class="calc-link__title">
+                                <span class="calc-link__title">
                                     Калькулятор
                                 </span>
                             </a>
@@ -158,7 +155,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-2"></div>
-                <div class="col-5">
+                <div class="col-6 col-xxl-5">
                     <div class="">
                         <?php
                         // Главное меню
@@ -181,24 +178,24 @@
                         ?>
                     </div>
                 </div>
-                <div class="col-3 ms-auto">
-                    <div class="row">
-                        <div class="col-3 border-start border-2">
+                <div class="col-4 col-xxl-3 ms-auto">
+                    <nav class="row">
+                        <div class="col-2 col-xl-3 border-start border-2">
                             <a href="" class="header-link">
                                 <svg width="38" height="38">
                                     <use xlink:href="#icon_balance"></use>
                                 </svg>
                             </a>
                         </div>
-                        <div class="col-3 border-start border-2">
-                            <a href="" class="header-link">
+                        <div class="col-2 col-xl-3 border-start border-2">
+                            <a href="" class="header-link header-link_favorites">
                                 <svg width="33" height="33">
                                     <use xlink:href="#icon_heart"></use>
                                 </svg>
                             </a>
                         </div>
-                        <div class="col-6 border-start border-2">
-                            <a href="" class="header-link mini-cart justify-content-start">
+                        <div class="col-8 col-xl-6 border-start border-2 d-flex">
+                            <a href="" class="header-link mini-cart justify-content-start ms-auto">
                                 <svg width="38" height="38">
                                     <use xlink:href="#icon_cart"></use>
                                 </svg>
@@ -208,7 +205,7 @@
                                 </span>
                             </a>
                         </div>
-                    </div>
+                    </nav>
                 </div>
             </div>
         </div>

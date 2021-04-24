@@ -7,7 +7,7 @@ $oldPrice = str_replace(".00 руб", " р.", $arResult["ITEM"]["PRICES"]["Ти�
 ?>
 <article class="product-card">
     <small class="product-card__article">
-        Артикул: <?= $arResult["ITEM"]["ID"] ?>
+        Код: <?= $arResult["ITEM"]['PROPERTIES']['CML2_TRAITS']['VALUE']['2'] ?>
     </small>
     <a href="" class="product-card__link">
         <img class="product-card__image"
@@ -37,7 +37,7 @@ $oldPrice = str_replace(".00 руб", " р.", $arResult["ITEM"]["PRICES"]["Ти�
     <div class="product-card__buttons">
         <a href="<?= $arResult["ITEM"]["PREVIEW_PICTURE"]["HEIGHT"] ?>"
            title="Перейти на страницу товара «<?= $arResult["ITEM"]["ITEM"]["NAME"] ?>»"
-           class="button"
+           class="product-card__more button button_outlined"
            type="button">
             Подробнее
         </a>

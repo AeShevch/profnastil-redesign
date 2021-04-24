@@ -29,7 +29,12 @@
   }
 
   &_outlined {
-
+    background-color: var(--white);
+    border-width: 3px;
+    
+    &:hover {
+      background-color: var(--main);
+    }
   }
 
   & > *:first-child {

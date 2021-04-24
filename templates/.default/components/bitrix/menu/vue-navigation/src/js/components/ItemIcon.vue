@@ -18,7 +18,6 @@ const {SITE_TEMPLATE_PATH} = window.bxConstants;
 
 const sectionNameToIcon = {
   "Каталог": "icon_burger",
-  "Акции": "icon_percentage",
   "Избранное": "icon_like",
   "Сравнение": "icon_compare",
   "Корзина": "icon_cart",

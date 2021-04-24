@@ -1,0 +1,11 @@
+.icon-button {
+  svg {
+    fill: var(--gray);
+  }
+
+  &_active {
+    svg {
+      fill: var(--accent);
+    }
+  }
+}

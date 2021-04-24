@@ -1,0 +1,23 @@
+.header-mobile {
+  margin-bottom: calc(var(--base-gutter) / 2);
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--white);
+  z-index: 1;
+
+  &__inner {
+    @include media-breakpoint-down(sm) {
+      padding: 0 var(--bs-gutter-x, 0.75rem) 0 0;
+    }
+  }
+
+  &__burger {
+    padding: 1rem;
+    background-color: var(--main);
+    width: 100%;
+
+    &:focus {
+      border-radius: 0;
+      outline: none;
+    }
+  }
+}

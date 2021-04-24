@@ -5,6 +5,7 @@
     display: flex;
     background-color: var(--white);
     justify-content: center;
+    border-radius: var(--base-radius);
   }
 
   &__slides {

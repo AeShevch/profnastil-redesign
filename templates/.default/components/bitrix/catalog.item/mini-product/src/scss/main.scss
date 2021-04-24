@@ -19,15 +19,20 @@
 
   &__article {
     margin-bottom: 1em;
+    margin-right: auto;
+    font-size: 1em;
   }
 
   &__image {
-    margin: 0 auto 1em;
+    margin: 0 auto 1.5em;
     transition: transform var(--transition-time);
+    height: 236px;
   }
 
   &__title {
-    font-size: 1.14em;
+    font-size: 1em;
+    line-height: 1.56;
+    margin-bottom: 2em;
   }
 
   &__link {
@@ -45,7 +50,7 @@
     align-items: flex-start;
     width: 100%;
     margin-top: auto;
-    margin-bottom: 1em;
+    margin-bottom: 1.375em;
   }
 
   &__main-price {
@@ -55,6 +60,7 @@
 
   &__old-price {
     color: var(--red);
+    font-weight: 700;
   }
 
   &__buttons {
@@ -64,12 +70,25 @@
     width: 100%;
 
     a {
-      font-size: 1.14em;
+      font-size: 1em;
+    }
+  }
+
+  &__more {
+    font-size: 1em!important;
+    padding: .75em 1em .93em!important;
+    font-weight: 700!important;
+    height: auto!important;
+
+    &:hover {
+      color: inherit;
     }
   }
 
   &__buy {
     color: var(--base-text-color);
+    font-weight: 700;
+    font-size: 1.14em;
 
     &:hover {
       color: inherit;

@@ -1,0 +1,29 @@
+$horizontalGutter: 1em;
+
+.m-search-collapse {
+  position: absolute;
+  left: 0;
+
+  // Like the bootstraps dropdown z-index
+  z-index: $zindex-dropdown;
+  width: 100%;
+  padding: ($horizontalGutter / 2) 0;
+  background-color: var(--white);
+
+  &__inner {
+    --bs-gutter-x: .75rem;
+  }
+
+  &.show,
+  &.collapsing {
+    & ~ .m-catalog-dropdown {
+      // search block height
+      margin-top: calc(var(--header-elements-height) + #{$horizontalGutter}) !important;
+    }
+  }
+}
+
+.m-catalog-dropdown {
+  margin-top: 0;
+  transition: margin .35s ease;
+}

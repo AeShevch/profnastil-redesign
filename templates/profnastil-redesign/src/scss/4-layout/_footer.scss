@@ -1,0 +1,18 @@
+.footer {
+  background-color: var(--footer-bg);
+  padding: 5.14em 0;
+
+  &__logo {
+    display: inline-block;
+  }
+
+  &__top {
+    border-bottom: 1px solid var(--border-on-dark-color);
+    padding-bottom: 4.8em;
+  }
+
+  &__bottom * {
+    color: var(--white);
+    font-size: calc(1rem - 1px);
+  }
+}

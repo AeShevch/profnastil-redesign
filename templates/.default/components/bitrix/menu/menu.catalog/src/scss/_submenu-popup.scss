@@ -10,8 +10,8 @@
     background-color: var(--white);
     border-radius: var(--base-radius);
     padding: 2.85em;
-    // 6 колонок минус отступ
-    width: calc(var(--container-width) / 12 * 6 - var(--bs-gutter-x) / 2);
+    // 9 колонок минус отступ
+    width: calc(var(--container-width) / 12 * 9 - var(--bs-gutter-x) / 2);
   }
 
   &__list {
@@ -31,7 +31,7 @@
     color: var(--base-text-color);
     align-items: center;
     font-size: 1em;
-    margin-bottom: .5em;
+    margin-bottom: 1em;
 
     &:hover {
       color: var(--accent);
@@ -56,6 +56,13 @@
       text-decoration: none;
       color: var(--muted-text-color);
       font-size: calc(1em - 2px);
+      font-weight: 100;
+      line-height: 1.4;
+      transition: color var(--transition-time);
+
+      &:hover {
+        color: var(--black)
+      }
     }
 
   }

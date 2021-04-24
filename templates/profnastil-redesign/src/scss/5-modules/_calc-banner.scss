@@ -1,0 +1,53 @@
+.calc-banner {
+  background-position: right;
+  background-repeat: no-repeat;
+  background-color: #e4e6ee;
+  background-size: auto 100%;
+  padding: 2em;
+  border-radius: var(--base-radius);
+  margin-bottom: 4.3em;
+
+  background-image: none;
+
+
+  @include media-breakpoint-up(md) {
+    padding: 4em 8em;
+  }
+
+
+  @include media-breakpoint-up(lg) {
+    background-image: url(/local/templates/profnastil-redesign/images/calc-banner-bg.jpg);
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 23em;
+  }
+
+  &__title {
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.8em;
+  }
+
+  &__desc {
+    font-size: 1.2em;
+    margin-bottom: 1.5em;
+  }
+
+  &__link {
+    text-decoration: none;
+    background-color: var(--white);
+    font-size: 1em;
+    padding: 0.5em 1em;
+    display: inline-flex;
+    border-radius: var(--base-radius);
+    color: var(--base-text-color);
+    font-weight: 700;
+
+    @include focus;
+  }
+}

@@ -31,14 +31,14 @@ $rightOffset: .9em;
   }
 
   // Последние два подменю прижимаем к низу меню
-  &:nth-last-of-type(-n+3) {
-    position: static;
-
-    #{$self}__popup {
-      top: auto;
-      bottom: 0;
-    }
-  }
+  //&:nth-last-of-type(-n+3) {
+  //  position: static;
+  //
+  //  #{$self}__popup {
+  //    top: auto;
+  //    bottom: 0;
+  //  }
+  //}
 
   &__title {
     text-transform: lowercase;

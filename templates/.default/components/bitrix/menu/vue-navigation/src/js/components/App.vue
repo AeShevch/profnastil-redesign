@@ -36,11 +36,6 @@
             </ul>
           </div>
 
-          <!-- Блок с авторизацией, регистрацией, баллами и тд -->
-          <div class="mobile-nav__item pt-0 pb-0" v-if="!currentLevelDepth">
-            <UserBlock/>
-          </div>
-
           <!-- Контакты и соцсети -->
           <div class="mobile-nav__item" v-if="!currentLevelDepth">
             <Contacts/>
@@ -51,8 +46,6 @@
             <PagesMenu/>
           </div>
 
-          <!-- Наши проекты -->
-          <Projects v-if="!currentLevelDepth" />
         </div>
       </transition-group>
     </div>
@@ -300,10 +293,6 @@ const menuLinks = [
         ]
       }
     ]
-  },
-  {
-    label: "Акции",
-    url: "#"
   },
   {
     label: "Избранное",

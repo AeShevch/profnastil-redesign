@@ -19,6 +19,12 @@ $curPage = $APPLICATION->GetCurPage(true);
   <link rel="preload" href="<?=SITE_TEMPLATE_PATH?>/fonts/open-sans-v18-latin_cyrillic-700.woff2"
         as="font" type="font/woff2" crossorigin="anonymous">
 
+    <script data-skip-moving="true">
+        window.bxConstants = {
+            SITE_TEMPLATE_PATH: "<?= SITE_TEMPLATE_PATH ?>",
+        }
+    </script>
+
     <?php
     $APPLICATION->ShowHead();
     use Bitrix\Main\Page\Asset;
@@ -37,3 +43,7 @@ $curPage = $APPLICATION->GetCurPage(true);
 <?
 // Header
 $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . "/layouts/header.php"); ?>
+
+<?php
+// Header mobile
+$APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . "/layouts/header-mobile.php"); ?>

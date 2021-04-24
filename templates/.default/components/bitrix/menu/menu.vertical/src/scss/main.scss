@@ -1,0 +1,31 @@
+.vertical-menu {
+  font-size: 1rem;
+
+  &__title {
+    font-size: 1.14em;
+    color: var(--muted-text-color);
+    font-weight: 700;
+    margin-bottom: .85em;
+  }
+
+  &__item {
+    font-size: 1em;
+    line-height: 1.2;
+    font-weight: 400;
+
+    &:not(:last-of-type) {
+      margin-bottom: 1em;
+    }
+  }
+
+  &__link {
+    color: var(--white);
+    text-decoration: none;
+    transition: color var(--transition-time);
+
+    &:hover {
+      color: var(--main);
+      text-decoration: underline;
+    }
+  }
+}

@@ -8,16 +8,24 @@
   text-decoration: none;
 
   &__title {
-    font-size: 1.14em;
+    font-size: 1em;
     color: var(--base-text-color);
     font-weight: 700;
+
+    @include media-breakpoint-up(xl) {
+      font-size: 1.14em;
+    }
   }
 
   &__icon {
     background-color: #111E24;
     padding: .5em;
     border-radius: var(--base-radius);
-    margin-right: 1.7em;
+    margin-right: 0.3em;
+
+    @include media-breakpoint-up(xl) {
+      margin-right: 1.7em;
+    }
 
     svg {
       fill: #fff;
