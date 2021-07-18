@@ -1,0 +1,24 @@
+.product {
+  font-size: 1rem;
+
+  &__main {
+    padding: 1.4em 2.14em 1.4em 1.4em;
+  }
+
+  &__title {
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0;
+  }
+
+  &__col {
+    &:first-of-type {
+      max-width: calc(100% - 26em);
+    }
+
+    &:last-of-type {
+      max-width: 26em;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.section {
+  box-shadow: var(--base-shadow);
+  border-radius: var(--base-radius);
+  background-color: var(--white);
+
+  &_padding {
+    padding: 2.14em 1.4em;
+  }
+}

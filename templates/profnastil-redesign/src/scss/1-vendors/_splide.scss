@@ -5,4 +5,8 @@
     display: flex;
     flex-direction: column;
   }
+
+  &__pagination__page.is-active {
+    background: var(--main);
+  }
 }

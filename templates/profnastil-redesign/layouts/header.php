@@ -1,6 +1,21 @@
 <?php
 /** @global CMain $APPLICATION */
 /** @global $USER */
+
+use Bitrix\Main\Loader;
+    Loader::includeModule("sale");
+     $delaydBasketItems = CSaleBasket::GetList(
+        array(),
+            array(
+            "FUSER_ID" => CSaleBasket::GetBasketUserID(),
+            "LID" => SITE_ID,
+            "ORDER_ID" => "NULL",
+            "DELAY" => "Y"
+        ),
+      array()
+    );
+    
+
 ?>
 
 <header class="header js-header-element d-none d-lg-block" id="header">
@@ -181,6 +196,7 @@
                 <div class="col-4 col-xxl-3 ms-auto">
                     <nav class="row">
                         <div class="col-2 col-xl-3 border-start border-2">
+								
                             <a href="" class="header-link">
                                 <svg width="38" height="38">
                                     <use xlink:href="#icon_balance"></use>

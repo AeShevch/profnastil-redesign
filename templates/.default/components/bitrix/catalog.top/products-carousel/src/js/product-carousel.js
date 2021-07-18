@@ -1,5 +1,5 @@
 import Splide from "@splidejs/splide";
-import {BREAKPOINTS} from "../../../../../../../profnastil-redesign/src/js/utils/breakpoints"
+import { BREAKPOINTS } from "../../../../../../../profnastil-redesign/src/js/utils/breakpoints";
 
 const DEFAULT_OPTIONS = {
   breakpoints: {
@@ -15,8 +15,8 @@ const DEFAULT_OPTIONS = {
     [BREAKPOINTS.sm]: {
       perPage: 1,
     },
-  }
-}
+  },
+};
 
 export default class ProductsCarousel {
   constructor(sliderSelector) {
@@ -30,11 +30,15 @@ export default class ProductsCarousel {
   }
 
   _slideLeft(instance) {
-    instance.go(`<`);
+    if (instance.length > instance.options.perPage) {
+      instance.go(`<`);
+    }
   }
 
   _slideRight(instance) {
-    instance.go(`>`);
+    if (instance.length > instance.options.perPage) {
+      instance.go(`>`);
+    }
   }
 
   _setHandlers(containerElement, instance) {
@@ -46,19 +50,27 @@ export default class ProductsCarousel {
       .addEventListener(`click`, () => this._slideRight(instance));
   }
 
-  _filterSlides(filterTarget, tabItemElements, instance) {
-    tabItemElements.forEach((tabItemElement) => {
+  _filterSlides(filterTarget, instance, containerElement) {
+    instance.destroy();
+
+    const filteredSlidesFragment = document.createDocumentFragment();
+    [...instance.slides].forEach((slideElement) => {
       if (
-        tabItemElement.dataset.filter === filterTarget ||
+        slideElement.dataset.filter === filterTarget ||
         filterTarget === `all`
       ) {
-        tabItemElement.removeAttribute(`hidden`);
-      } else {
-        tabItemElement.setAttribute(`hidden`, true);
+        filteredSlidesFragment.append(slideElement);
       }
     });
 
-    instance.refresh();
+    const slidesContainerElement = containerElement.querySelector(
+      `.js-products-carousel-slides-list`
+    );
+
+    slidesContainerElement.innerHTML = ``;
+    slidesContainerElement.appendChild(filteredSlidesFragment);
+
+    instance.mount();
   }
 
   _toggleSelectedState(element) {
@@ -71,10 +83,9 @@ export default class ProductsCarousel {
 
   _onTabClick(target, instance, containerElement) {
     const filterTarget = target.dataset.filterTarget;
-    const tabItemElements = containerElement.querySelectorAll(`[data-filter]`);
 
     this._toggleSelectedState(target);
-    this._filterSlides(filterTarget, tabItemElements, instance);
+    this._filterSlides(filterTarget, instance, containerElement);
   }
 
   _initFilter(containerElement, instance) {
@@ -90,6 +101,10 @@ export default class ProductsCarousel {
 
   init() {
     this._containerElements.forEach((containerElement) => {
+      const slides = containerElement.querySelectorAll(
+        `.js-products-carousel-slide`
+      );
+
       const instance = new Splide(containerElement, {
         perPage: containerElement.dataset.perPage,
         gap: `1.5rem`,
@@ -97,9 +112,8 @@ export default class ProductsCarousel {
         ...DEFAULT_OPTIONS,
       });
 
-      console.log(instance);
-
       instance.mount();
+      instance.slides = slides;
 
       this._instances.push(instance);
 

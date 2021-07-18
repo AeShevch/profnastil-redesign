@@ -1,0 +1,79 @@
+@import "../../../../../../../b2b-shop/src/scss/2-helpers/mixins";
+
+.additional-services {
+  font-size: 1rem;
+  border-bottom: 2px dashed var(--border-color);
+  padding-bottom: .7em;
+  width: 100%;
+  margin-bottom: .85em;
+
+  &__row {
+    & + & {
+      margin-top: .7em;
+    }
+  }
+}
+
+.additional-service {
+  $self: &;
+
+  &__toggle-icon {
+    display: inline-block;
+    transition: transform var(--transition-time) var(--transition-timing-function);
+    cursor: pointer;
+    color: var(--medium-gray);
+    font-size: 2em;
+    line-height: 0.6em;
+    position: absolute;
+    right: -0.7em;
+    transition-property: color, transform;
+    transition-duration: var(--transition-time);
+
+    &:hover {
+      color: var(--red);
+    }
+  }
+
+  &__title {
+    color: var(--dark-gray);
+    transition: color var(--transition-time);
+
+    b {
+      color: var(--dark);
+      transition: inherit;
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: flex-end;
+  }
+
+  &__checkbox {
+    appearance: none;
+    position: absolute;
+
+    &:not(:checked) {
+      & + #{$self}__label {
+        & #{$self}__title {
+          text-decoration: line-through;
+          color: var(--muted-text-color);
+
+          b {
+            color: inherit;
+          }
+        }
+
+        & #{$self}__toggle-icon {
+          transform: rotate(45deg);
+
+          &:hover {
+            color: var(--green);
+          }
+        }
+      }
+    }
+  }
+}

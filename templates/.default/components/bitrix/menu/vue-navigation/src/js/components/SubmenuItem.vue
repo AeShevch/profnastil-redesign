@@ -16,11 +16,6 @@
         ref="link"
         v-if="item.hasItems"
     >
-      <ItemIcon
-          :currentLevelDepth="currentLevelDepth"
-          :name="item.label"
-          :src="``"
-      />
       {{ item.label }}
     </button>
 
@@ -30,11 +25,6 @@
         :href="item.url"
         class="mobile-main-menu__link"
     >
-      <ItemIcon
-          :currentLevelDepth="currentLevelDepth"
-          :name="item.label"
-          :src="``"
-      />
       {{ item.label }}
     </a>
 
@@ -42,13 +32,8 @@
 </template>
 
 <script>
-import ItemIcon from "./ItemIcon";
-
 export default {
   name: `SubmenuItem`,
   props: [`item`, `currentLevelDepth`],
-  components: {
-    ItemIcon
-  }
 }
 </script>

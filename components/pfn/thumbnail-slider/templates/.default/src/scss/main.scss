@@ -1,0 +1,71 @@
+@import "../../../../../../../templates/b2b-shop/src/scss/2-helpers/mixins";
+
+.thumbnail-slider {
+  $self: &;
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__secondary {
+    padding: 2.5em 0;
+
+    #{$self}__item {
+      border: 1px solid var(--border-color);
+      border-radius: var(--base-radius);
+      transition-property: box-shadow, border-color;
+      transition-duration: var(--transition-time);
+
+      &[aria-current="true"] {
+        border-color: var(--accent);
+      }
+    }
+
+    .splide {
+      &__arrow {
+        width: 1.7em;
+        height: 1.7em;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        @include focus(focus-visible);
+        @include active;
+
+        &:active {
+          svg {
+            fill: var(--medium-gray);
+          }
+        }
+
+        svg {
+          fill: var(--accent);
+          transform-origin: center;
+          width: inherit;
+          height: inherit;
+          transition-property: fill;
+          transition-duration: var(--transition-time);
+        }
+
+        &--prev {
+          top: .4em;
+
+          svg {
+            transform: rotate(-.25turn);
+          }
+        }
+
+        &--next {
+          bottom: .4em;
+
+          svg {
+            transform: rotate(.25turn);
+          }
+        }
+      }
+    }
+  }
+}

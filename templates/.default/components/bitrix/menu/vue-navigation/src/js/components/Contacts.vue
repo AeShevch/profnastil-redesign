@@ -1,23 +1,23 @@
 <template>
   <div class="menu-mobile-contacts d-flex flex-column align-items-center">
     <div class="menu-mobile-contacts__item">
-      <a href="tel:88123183836"
+      <a href="tel:+74242777566"
          title="Позвонить нам"
          class="menu-mobile-contacts__link">
         <svg width="16" height="16">
             <use xlink:href="#icon_phone"></use>
         </svg>
-        8 (812) 318-38-36
+        +7 (4242) 777-566
       </a>
     </div>
     <div class="menu-mobile-contacts__item">
-      <a href="mailTo:corporate@nbcom.ru"
+      <a href="mailTo:tdprofnastil@mail.ru"
          title="Написать нам на email"
          class="menu-mobile-contacts__link">
         <svg width="16" height="16">
           <use xlink:href="#icon_letter"></use>
         </svg>
-        corporate@nbcom.ru
+        tdprofnastil@mail.ru
       </a>
     </div>
     <div class="menu-mobile-contacts__item">

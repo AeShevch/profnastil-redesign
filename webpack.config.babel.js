@@ -88,6 +88,35 @@ Encore.setOutputPath(PATH_TO_ROOT)
         template: "mini-product",
     })
 
+    // Фильтр в каталоге
+    .BXComponentStyle("bitrix:catalog.smart.filter", {
+        siteTemplate: ".default",
+    })
+    .BXComponentJs("bitrix:catalog.smart.filter", {
+        siteTemplate: ".default",
+    })
+
+    // Обёртка для мобильного фильтра
+    .BXComponentStyle("bitrix:catalog.smart.filter", {
+        siteTemplate: ".default",
+        template: "modal-wrapped-filter",
+    })
+    .BXComponentJs("bitrix:catalog.smart.filter", {
+        siteTemplate: ".default",
+        template: "modal-wrapped-filter",
+    })
+
+    // Хлебные крошки
+    .BXComponentStyle("bitrix:breadcrumb", {
+        siteTemplate: ".default",
+        template: "shop",
+    })
+
+    // Каталог
+    .BXComponentStyle("bitrix:catalog", {
+        siteTemplate: ".default",
+    })
+
     .enablePostCssLoader()
     .enableSassLoader()
     .enableVueLoader()

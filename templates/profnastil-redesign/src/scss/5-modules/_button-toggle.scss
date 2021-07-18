@@ -1,0 +1,25 @@
+.button-toggle {
+  $self: &;
+  font-size: 1rem;
+
+  &__label {
+    background-color: var(--main-bg-color);
+    color: var(--base-text-color);
+    padding: 2px 1em 3px;
+    border-radius: var(--base-radius);
+    transition: var(--transition-time) ease-in-out;
+    border: 1px solid var(--main-bg-color);
+    cursor: pointer;
+  }
+
+  &__input {
+    &:checked + #{$self}__label {
+      background-color: var(--white);
+      border-color: var(--accent);
+    }
+
+    &:focus-visible + #{$self}__label {
+      box-shadow: var(--focus-shadow);
+    }
+  }
+}

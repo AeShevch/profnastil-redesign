@@ -1,0 +1,29 @@
+.product-controls {
+  border-bottom: 2px dashed var(--border-color);
+  margin-bottom: 1em;
+
+  &__add-to-compare {
+    padding: 0 0.5em!important;
+  }
+
+  &__item {
+    color: var(--medium-gray);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: calc(1em - 2px);
+    padding: 1.3em 0;
+    transition-property: transform, color;
+    transition-duration: var(--transition-time);
+    transition-timing-function: var(--transition-timing-function);
+
+    svg {
+      fill: currentColor;
+      margin-right: .5em;
+    }
+
+    @include focus(focus-visible);
+    @include active;
+  }
+}

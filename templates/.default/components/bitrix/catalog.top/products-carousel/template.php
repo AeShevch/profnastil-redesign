@@ -2,12 +2,6 @@
 /** @global CMain $APPLICATION */
 /** @var array $arResult */
 /** @var CBitrixComponent $component */
-//echo "<pre>";
-//
-//foreach ($arResult["ITEMS"] as $item) {
-//    print_r($item["PROPERTIES"]["KATEGORIYA_TOVARA"]);
-//}
-//echo "</pre>";
 
 $tabItems = array_reduce($arResult["ITEMS"], function ($carry, $item) {
     $currentCategory = $item["PROPERTIES"]["KATEGORIYA_TOVARA"];
@@ -80,11 +74,11 @@ $tabItems = array_reduce($arResult["ITEMS"], function ($carry, $item) {
          data-per-page="<?= $arResult["ORIGINAL_PARAMETERS"]["COUNT_PER_PAGE"] ?>"
          id="<?= $arResult["ORIGINAL_PARAMETERS"]["CAROUSEL_ID"] ?>">
         <div class="splide__track">
-            <ul class="splide__list">
+            <ul class="splide__list js-products-carousel-slides-list">
                 <?php
                 foreach ($arResult["ITEMS"] as $item) :
                     ?>
-                    <li class="splide__slide"
+                    <li class="splide__slide js-products-carousel-slide"
                         data-filter="<?= $item["PROPERTIES"]["KATEGORIYA_TOVARA"]["VALUE_ENUM_ID"] ?>">
                         <?php
                         $APPLICATION->IncludeComponent(

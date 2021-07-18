@@ -1,0 +1,21 @@
+.bonuses-informer {
+  background-color: var(--light-blue);
+  border-radius: var(--base-radius);
+  font-size: calc(1em - 2px);
+  padding: .5em 1em;
+  display: inline-flex;
+  align-items: center;
+  color: var(--light-text-gray);
+  margin-bottom: 2em;
+
+  &__icon {
+    fill: var(--accent);
+    margin-right: 1em;
+    margin-top: 1px;
+  }
+
+  &__count {
+    font-weight: 600;
+    color: var(--accent);
+  }
+}

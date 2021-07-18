@@ -1,0 +1,8 @@
+.main-filter {
+  color: var(--black);
+
+  &__counter {
+    color: var(--light-text-gray);
+    margin-left: .5em;
+  }
+}

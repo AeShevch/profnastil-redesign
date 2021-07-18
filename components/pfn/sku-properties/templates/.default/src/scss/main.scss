@@ -1,0 +1,18 @@
+.sku-properties {
+  .custom-fieldset {
+    font-weight: 600;
+
+    &__legend {
+      color: var(--base-text-color);
+    }
+  }
+
+  .button-toggle {
+    &__label {
+      background-color: var(--white);
+      border-color: var(--gray);
+      border-radius: var(--big-radius);
+      font-size: calc(1em - 1px);
+    }
+  }
+}

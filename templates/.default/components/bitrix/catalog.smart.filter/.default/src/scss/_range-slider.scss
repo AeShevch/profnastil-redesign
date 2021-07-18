@@ -1,0 +1,46 @@
+@import "../../../../../../../../../../../../../Users/aleksandrsevcenko/Downloads/B2B_Nbcom-dev-03dae3cf86474be24b3dc028a2e2fedc69c5f090/nbcom/local/templates/b2b-shop/src/scss/2-helpers/mixins";
+
+.noUi-tooltip {
+  display: none;
+}
+
+.noUi-active .noUi-tooltip {
+  display: block;
+}
+
+.noUi-connects {
+  overflow: visible;
+}
+
+.noUi-horizontal {
+  border-color: transparent;
+  height: 2px;
+  background: var(--gray);
+  border-radius: 3px;
+}
+
+.noUi-connect {
+  background: var(--accent);
+  height: 4px;
+  border-color: var(--accent);
+  top: -3px;
+}
+
+.noUi-handle {
+  box-shadow: var(--base-shadow);
+  border-radius: 50%;
+  width: 1.4em!important;
+  height: 1.4em!important;
+  padding: 0;
+  border: 1px solid var(--accent);
+  transform: translateY(-50%);
+  top: auto!important;
+  cursor: pointer;
+
+  @include focus(focus-visible);
+
+  &:before,
+  &:after {
+    display: none;
+  }
+}

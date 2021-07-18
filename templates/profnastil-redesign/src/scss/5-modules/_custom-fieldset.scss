@@ -1,0 +1,18 @@
+.custom-fieldset {
+  font-size: 1rem;
+
+  &__legend {
+    font-size: calc(1em - 2px);
+    margin-bottom: .6em;
+    color: var(--muted-text-color);
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__field {
+    margin: 0 .56em .56em 0;
+  }
+}

@@ -1,3 +1,9 @@
+@import "../../../../../../../templates/profnastil-redesign/src/scss/1-vendors/bootstrap-custom";
+@import "../../../../../../../templates/profnastil-redesign/src/scss/2-helpers/mixins";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
 .brush-stroke {
   width: 100%;
   display: inline-flex;

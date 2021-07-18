@@ -1,0 +1,146 @@
+.cards-popup {
+  $self: &;
+  background-color: var(--main-bg-color);
+  border-radius: var(--base-radius);
+  font-size: 1rem;
+  padding: 1em .64em;
+  border: 1px solid var(--accent);
+  box-shadow: var(--base-shadow);
+
+  &.show {
+    #{$self}__item {
+      display: block;
+    }
+  }
+
+  &__add {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+    font-size: 1em;
+    width: 100%;
+    padding: 1em 0 0.7em;
+
+    &:before {
+      content: "+";
+      border: 1px solid currentColor;
+      border-radius: 50%;
+      margin-right: 1rem;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5em;
+      line-height: 1;
+    }
+
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  &__item {
+    display: none;
+    opacity: 0;
+    width: 100%;
+
+    & + & {
+      margin-top: .5em;
+    }
+
+    $maxItemsCount: 6;
+    @for $i from 1 through $maxItemsCount {
+      &:nth-child(#{$i}) {
+        transform-origin: top center;
+        // TODO Выбрать анимацию
+        // scale
+        //animation: scaleZ 300ms ($i * 60ms) ease-in-out forwards;
+        // translate
+        animation: slideDown 300ms ($i * 60ms) ease-in-out forwards;
+        // rotate
+        //animation: rotateX 300ms ($i * 60ms) ease-in-out forwards;
+        // translate z
+        //animation: rotateZ 300ms ($i * 60ms) ease-in-out forwards;
+        // translate x
+        //animation: translateX 300ms ($i * 60ms) ease-in-out forwards;
+      }
+    }
+  }
+
+}
+
+@keyframes scaleZ {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  80% {
+    transform: scale(1.07);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-.5em);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotateX {
+  0% {
+    opacity: 0;
+    transform: rotateX(-90deg);
+  }
+  50% {
+    transform: rotateX(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+}
+
+@keyframes rotateZ {
+  0% {
+    opacity: 0;
+    transform: translateZ(290px);
+  }
+
+  80% {
+    transform: translateZ(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateZ(0);
+  }
+}
+
+@keyframes translateX {
+  0% {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+
+  80% {
+    transform: translateX(-5px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

@@ -1,0 +1,26 @@
+.link {
+  @include resetBtn;
+  color: var(--links-color);
+
+  &_dashed {
+    border-bottom: 1px dashed currentColor;
+  }
+
+  &_dropdown {
+    --icon-size: calc(1em - 2px);
+    position: relative;
+    margin-right: var(--icon-size);
+
+    &:after {
+      content: "";
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M2.26143 4.28783C1.90986 4.64712 1.91078 5.22179 2.26351 5.57995L5.2878 8.65085C5.67953 9.04861 6.32106 9.04861 6.71279 8.65085L9.74062 5.57636C10.0914 5.2202 10.0923 4.64872 9.74268 4.29143C9.38299 3.92385 8.79139 3.92385 8.4317 4.29143L6.35766 6.41097C6.16156 6.61137 5.83903 6.61137 5.64293 6.41097L3.56537 4.28783C3.20761 3.92222 2.6192 3.92222 2.26143 4.28783Z' fill='%232765B9'/%3E%3C/svg%3E");
+      width: var(--icon-size);
+      height: var(--icon-size);
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin: auto 0 auto .2em;
+    }
+  }
+}

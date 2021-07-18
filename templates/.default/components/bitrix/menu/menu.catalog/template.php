@@ -27,7 +27,7 @@ if (empty($arResult["ALL_ITEMS"]))
           <a class="left-menu-item__link js-sync-with-popup js-stop-propagation-click"
              data-index="<?= $index ?>"
              title="Перейти к разделу «<?= $currentSection["TEXT"] ?>»"
-              <?= Site::isCurrentPage($menuItem["LINK"] ? "aria-current=\"page\"" : ""); ?>
+              <?= Site::isCurrentPage($currentSection["LINK"] ? "aria-current=\"page\"" : ""); ?>
              href="<?= $currentSection["LINK"] ?>">
             <img src="<?= $currentSection["PARAMS"]["picture_src"] ?>"
                  class="left-menu-item__icon"

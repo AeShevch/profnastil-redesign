@@ -1,0 +1,23 @@
+@import "../../../../../../../../../../../../../Users/aleksandrsevcenko/Downloads/B2B_Nbcom-dev-03dae3cf86474be24b3dc028a2e2fedc69c5f090/nbcom/local/templates/b2b-shop/src/scss/2-helpers/mixins";
+
+.product-control {
+  transition: transform var(--transition-time) var(--transition-timing-function);
+
+  & + & {
+    margin-top: .5em;
+  }
+
+  @include active;
+  @include focus(focus-visible);
+
+  &:hover {
+    svg {
+      fill: var(--main);
+    }
+  }
+
+  svg {
+    transition: fill var(--transition-time);
+    fill: var(--medium-gray);
+  }
+}
