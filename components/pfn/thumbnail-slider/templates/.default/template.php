@@ -25,7 +25,7 @@ function getResizedImage($imageArr, $size)
 
 ?>
 <section class="thumbnail-slider d-flex align-items-center justify-content-center" style="">
-    <img src="<?php echo $arParams["IMAGES"]["SRC"] ?>"
+    <img src="<?php echo !empty($arParams["IMAGES"]["SRC"]) ? $arParams["IMAGES"]["SRC"] : SITE_TEMPLATE_PATH . "/images/product-placeholder.jpeg" ?>"
          class="thumbnail-slider__image"
          alt="<?php echo $arParams["IMAGES"]["ALT"] ?>"
          loading="lazy"

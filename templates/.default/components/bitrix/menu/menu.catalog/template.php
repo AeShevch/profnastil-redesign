@@ -29,11 +29,6 @@ if (empty($arResult["ALL_ITEMS"]))
              title="Перейти к разделу «<?= $currentSection["TEXT"] ?>»"
               <?= Site::isCurrentPage($currentSection["LINK"] ? "aria-current=\"page\"" : ""); ?>
              href="<?= $currentSection["LINK"] ?>">
-            <img src="<?= $currentSection["PARAMS"]["picture_src"] ?>"
-                 class="left-menu-item__icon"
-                 alt="Изображение раздела «<?= $currentSection["TEXT"] ?>»"
-                 loading="lazy"
-                 width="24" height="24">
             <span class="left-menu-item__title">
                 <?= $currentSection["TEXT"] ?>
             </span>

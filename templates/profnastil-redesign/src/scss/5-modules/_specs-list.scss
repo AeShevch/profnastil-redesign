@@ -1,0 +1,14 @@
+.specs-list {
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px dashed var(--border-color);
+  }
+
+  &__title,
+  &__value {
+    &:first-letter {
+      text-transform: uppercase;
+    }
+  }
+}
