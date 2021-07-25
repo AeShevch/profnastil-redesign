@@ -159,7 +159,7 @@ $this->setFrameMode(true);
 				<!-- Catalog item  -->
 				<li class="col-6 col-lg-3 p-0" id="<?= $this->GetEditAreaId($arElement['ID']); ?>"
 					data-product-id="<?= $arElement['ID'] ?>">
-					<article class="catalog-item">
+					<article class="catalog-item h-100 d-flex flex-column">
 						<!-- Product sales -->
 						<div class="catalog-item__labels product-labels">
 							<div class="product-labels__main">
@@ -209,7 +209,7 @@ $this->setFrameMode(true);
 						<a href="<?= $arElement["DETAIL_PAGE_URL"] ?>" title="<?= $arElement["NAME"] ?>"
 						   title="Перейти к товару «<?= $arElement["NAME"] ?>»"
 						   class="catalog-item__image">
-							<img src="<?= $arElement["PREVIEW_PICTURE"]["SRC"] ?>"
+							<img src="<?php echo !empty($arElement["PREVIEW_PICTURE"]["SRC"]) ? $arElement["PREVIEW_PICTURE"]["SRC"] : SITE_TEMPLATE_PATH . "/images/product-placeholder.jpeg" ?>"
                                  id = "<?=$arItemIDs['PICT']?>"
 								<?php // aria-labelledby должен совпадать с id заголовка, id можно любой ?>
 								 aria-labelledby="catalog-item-title-<?= $this->GetEditAreaId($arElement['ID']); ?>"
@@ -221,7 +221,7 @@ $this->setFrameMode(true);
 						<!-- Product name -->
 
 						<a href="<?= $arElement["DETAIL_PAGE_URL"] ?>"
-						   class="catalog-item__link mb-3"
+						   class="catalog-item__link mb-3 mt-2"
 						   title="Перейти к товару «<?= $arElement["NAME"] ?>">
 							<h3 class="catalog-item__title"
 								id="catalog-item-title-<?= $this->GetEditAreaId($arElement['ID']); ?>">
@@ -230,7 +230,7 @@ $this->setFrameMode(true);
 						</a>
 
 						<!-- Product prices -->
-						<div class="catalog-item__prices mb-3">
+						<div class="catalog-item__prices mb-3 mt-auto">
 							<? foreach ($arElement["PRICES"] as $code => $arPrice): ?>
 								<? if ($arPrice["CAN_ACCESS"]): ?>
 									<? if ($arPrice["DISCOUNT_VALUE"] < $arPrice["VALUE"]): ?>
@@ -377,7 +377,7 @@ $this->setFrameMode(true);
 
 					<!-- Catalog item  -->
 					<li class="col-6 col-lg-3 p-0" id="<?= $this->GetEditAreaId($arElement['ID']); ?>">
-						<article class="catalog-item">
+						<article class="catalog-item h-100 d-flex flex-column">
 							<!-- Product sales -->
 							<div class="catalog-item__labels product-labels">
 								<div class="product-labels__main">
@@ -451,11 +451,11 @@ $this->setFrameMode(true);
 							</div>
 
 							<!-- Product image -->
-							<a href="<?= $arElement["DETAIL_PAGE_URL"] ?>" title="<?= $arElement["NAME"] ?>"
+							<a href="<?= $arElement["DETAIL_PAGE_URL"] ?>"
                                id = "<?=$arItemIDs['PICT']?>"
 							   title="Перейти к товару «<?= $arElement["NAME"] ?>»"
 							   class="catalog-item__image">
-								<img src="<?= $arElement["PREVIEW_PICTURE"]["SRC"] ?>"
+								<img src="<?php echo !empty($arElement["PREVIEW_PICTURE"]["SRC"]) ? $arElement["PREVIEW_PICTURE"]["SRC"] : SITE_TEMPLATE_PATH . "/images/product-placeholder.jpeg" ?>"
 									<?php // aria-labelledby должен совпадать с id заголовка, id можно любой ?>
 									 aria-labelledby="catalog-item-title-<?= $this->GetEditAreaId($arElement['ID']); ?>"
 									 alt="<?= $arElement["NAME"] ?>"
@@ -466,7 +466,7 @@ $this->setFrameMode(true);
 							<!-- Product name -->
 
 							<a href="<?= $arElement["DETAIL_PAGE_URL"] ?>"
-							   class="catalog-item__link mb-3"
+							   class="catalog-item__link mb-3 mt-2"
 							   title="Перейти к товару «<?= $arElement["NAME"] ?>">
 								<h3 class="catalog-item__title"
 									id="catalog-item-title-<?= $this->GetEditAreaId($arElement['ID']); ?>">
@@ -475,7 +475,7 @@ $this->setFrameMode(true);
 							</a>
 
 							<!-- Product prices -->
-							<div class="catalog-item__prices mb-3">
+							<div class="catalog-item__prices mb-3 mt-auto">
 								<? foreach ($arElement["PRICES"] as $code => $arPrice): ?>
 									<? if ($arPrice["CAN_ACCESS"]): ?>
                                         <? if ($arPrice["DISCOUNT_VALUE"] < $arPrice["VALUE"]): ?>

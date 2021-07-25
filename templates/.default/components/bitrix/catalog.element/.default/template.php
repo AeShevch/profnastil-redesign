@@ -56,7 +56,7 @@ $SPECS_TO_EXCLUDE = [
     </div>
     <form action="" name="product-form" class="product__main section">
         <div class="row">
-            <div class="col-7">
+            <div class="col-sm-7 col-12">
                 <div class="row">
                     <div class="col-12 mb-2">
                         <div class="product__labels product-labels">
@@ -92,7 +92,7 @@ $SPECS_TO_EXCLUDE = [
                     </div>
                 </div>
             </div>
-            <div class="col-5 border-start">
+            <div class="col-sm-5 col-12 border-start">
                 <div class="product__prices product-prices">
                     <div class="product-prices__row">
                         <fieldset class="count-field me-4">
@@ -140,7 +140,7 @@ $SPECS_TO_EXCLUDE = [
                 </div>
                 <div class="product__controls product-controls">
                     <div class="row justify-content-end">
-                        <div class="col-5">
+                        <div class="col-lg-5 col-12 mb-2 mb-lg-0">
                             <a aria-label="Добавить в корзину"
                                class="product-controls__add-to-cart button button_size_high w-100"
                                href="<?php echo $arResult["ADD_URL"] ?>"
@@ -148,7 +148,7 @@ $SPECS_TO_EXCLUDE = [
                                 Добавить в корзину
                             </a>
                         </div>
-                        <div class="col-5">
+                        <div class="col-lg-5 col-12">
                             <a aria-label="Быстрая покупка"
                                class="product-controls__add-to-compare button button_outlined button_size_high w-100"
                                href=""

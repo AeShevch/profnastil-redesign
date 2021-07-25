@@ -15,8 +15,8 @@ document.addEventListener(`DOMContentLoaded`, () => {
 
   // Sticky filter
   new StickySidebar('.js-sidebar', {
-    topSpacing: 0,
-    bottomSpacing: 0,
+    topSpacing: 14,
+    bottomSpacing: 14,
     containerSelector: '.js-main-content',
     innerWrapperSelector: '.js-sidebar-inner'
   });

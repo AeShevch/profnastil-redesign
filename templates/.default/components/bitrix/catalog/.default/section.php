@@ -1,73 +1,72 @@
-<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 $this->setFrameMode(true);
 ?>
 
 
+    <section class="catalog">
+        <? $APPLICATION->IncludeComponent(
+            "bitrix:catalog.section.list",
+            "header",
+            array(
+                "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+                "IBLOCK_ID" => $arParams["IBLOCK_ID"],
+                "SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
+                "SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
+                "DISPLAY_PANEL" => "N",
+                "CACHE_TYPE" => $arParams["CACHE_TYPE"],
+                "CACHE_TIME" => $arParams["CACHE_TIME"],
+                "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
 
-<section class="catalog">
-<?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.section.list",
-	"header",
-	Array(
-		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-		"SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
-		"SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
-		"DISPLAY_PANEL" => "N",
-		"CACHE_TYPE" => $arParams["CACHE_TYPE"],
-		"CACHE_TIME" => $arParams["CACHE_TIME"],
-		"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+                "SECTION_URL" => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["section"],
+            ),
+            $component
+        ); ?>
 
-		"SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
-	),
-	$component
-);?>
+        <!--  Catalog controls form  -->
+        <section class="section mb-5 mb-lg-3">
+            <div class="mobile-filter-toggle d-lg-none">
+                <button class="mobile-filter-toggle__button"
+                        data-bs-target="#filter-mobile"
+                        data-bs-toggle="modal"
+                        type="button">
+                    <svg width="24" height="24">
+                        <use xlink:href="#icon_filter"></use>
+                    </svg>
+                    Фильтры
+                    <span><?= count($GLOBALS['arrFilter']) ?></span>
+                </button>
+                <div class="mobile-filter-toggle__products-count">
+                    136 <br>
+                    товаров
+                </div>
 
-    <!--  Catalog controls form  -->
-    <section class="section mb-5 mb-lg-3">
-		<div class="mobile-filter-toggle d-lg-none">
-			<button class="mobile-filter-toggle__button"
-				data-bs-target="#filter-mobile"
-				data-bs-toggle="modal"
-				type="button">
-				<svg width="24" height="24">
-					<use xlink:href="#icon_filter"></use>
-				</svg>
-				Фильтры
-				<span><?=count($GLOBALS['arrFilter'])?></span>
-			</button>
-			<div class="mobile-filter-toggle__products-count">
-					136 <br>
-					товаров
-			</div>
-			
-<!--				--><?php
-            // Мобильные Фильтры
-//             $APPLICATION->IncludeComponent("bitrix:catalog.smart.filter", "modal-wrapped-filter", [], false); ?>
-        </div>
+                <?php
+                //             Мобильные Фильтры
+                $APPLICATION->IncludeComponent("bitrix:catalog.smart.filter", "modal-wrapped-filter", [], false); ?>
+            </div>
 
 
-        <form class="catalog__controls catalog-controls"
-              aria-controls="product-listings"
-              aria-label="Настройки фильтрации и сортировки списка товаров">
-            <div class="catalog-controls__bottom">
-                <!-- Applied filters -->
-                <?$APPLICATION->ShowViewContent('filter_result');?>
+            <form class="catalog__controls catalog-controls"
+                  aria-controls="product-listings"
+                  aria-label="Настройки фильтрации и сортировки списка товаров">
+                <div class="catalog-controls__bottom">
+                    <!-- Applied filters -->
+                    <? $APPLICATION->ShowViewContent('filter_result'); ?>
 
-                <!-- Catalog sort -->
-                <div class="catalog-controls__sort catalog-sort">
-                    <label class="align-center catalog-sort__label d-flex">
-                        Сортировать:&nbsp;
-                        <span class="catalog-sort__select link">
+                    <!-- Catalog sort -->
+                    <div class="catalog-controls__sort catalog-sort">
+                        <label class="align-center catalog-sort__label d-flex">
+                            Сортировать:&nbsp;
+                            <span class="catalog-sort__select link">
                             <?
-                            $arParams["SORT_BUTTONS"] =  array(
+                            $arParams["SORT_BUTTONS"] = array(
                                 0 => "SHOWS",
                                 1 => "NAME",
                                 2 => "PRICE",
                                 3 => "PRICE_UP",
                                 5 => "PRICE_DOWN",
                             );
-                            $arNameOptions =  array(
+                            $arNameOptions = array(
                                 'SHOWS' => [
                                     'NAME' => "По популярности",
                                     'SELECT' => 'N',
@@ -144,7 +143,7 @@ $this->setFrameMode(true);
                                 }
                             }
                             $arNameOptions[$sort]['SELECT'] = 'Y';
-                            if($sort == 'PRICE_DOWN' or 'PRICE_DOWN'){
+                            if ($sort == 'PRICE_DOWN' or 'PRICE_DOWN') {
                                 $sort = 'CATALOG_PRICE_7';
                             }
                             ?>
@@ -157,7 +156,7 @@ $this->setFrameMode(true);
             <? $newSort = $sort_order == 'desc' ? 'asc' : 'desc'; ?>
             <option class="sort_btn <?= ($sort == $key ? 'current' : '') ?> <?= $sort_order ?> <?= $key ?>"
                     <?= $arNameOptions[$key]['SELECT'] == 'Y' ? 'selected' : '' ?>
-                    value="<?= $APPLICATION->GetCurPageParam('sort=' . $key . '&order=' .  $arNameOptions[$key]['SORT'], array('sort', 'order')) ?>"><?= $arNameOptions[$key]['NAME'] ?></option>
+                    value="<?= $APPLICATION->GetCurPageParam('sort=' . $key . '&order=' . $arNameOptions[$key]['SORT'], array('sort', 'order')) ?>"><?= $arNameOptions[$key]['NAME'] ?></option>
         <? endforeach; ?>
         </select>
 
@@ -170,191 +169,186 @@ $this->setFrameMode(true);
         }
         ?>
 <!--                            <select class="js-choice"-->
-<!--                                    data-toggler-styles-reset="true"-->
-<!--                                    aria-label="Порядок сортировки товаров"-->
-<!--                                    name="sort_by">-->
-<!--                                <option value="">По возрастанию цены</option>-->
-<!--                                <option value="">Сначала популярные</option>-->
-<!--                                <option value="">Сначала недорогие</option>-->
-<!--                                <option value="">Со скидками</option>-->
-<!--                            </select>-->
+                                <!--                                    data-toggler-styles-reset="true"-->
+                                <!--                                    aria-label="Порядок сортировки товаров"-->
+                                <!--                                    name="sort_by">-->
+                                <!--                                <option value="">По возрастанию цены</option>-->
+                                <!--                                <option value="">Сначала популярные</option>-->
+                                <!--                                <option value="">Сначала недорогие</option>-->
+                                <!--                                <option value="">Со скидками</option>-->
+                                <!--                            </select>-->
 
 
                         </span>
-                    </label>
+                        </label>
+                    </div>
                 </div>
+            </form>
+        </section>
+
+
+        <div class="sort_filter">
+
+        </div>
+        <!--/noindex-->
+
+        <div class="catalog__main row">
+            <div class="col-12 mb-3 mb-lg-0 col-lg-3 " role="complementary">
+                <section class=" d-none d-lg-block js-sidebar">
+                    <div class="section section_padding js-sidebar-inner">
+                        <?php
+                        // Фильтры
+
+                        $APPLICATION->IncludeComponent(
+                            "bitrix:catalog.smart.filter",
+                            "profnastil",
+                            array(
+                                "CACHE_GROUPS" => "Y",
+                                "CACHE_TIME" => "36000000",
+                                "CACHE_TYPE" => "A",
+                                "CONVERT_CURRENCY" => "N",
+                                "DISPLAY_ELEMENT_COUNT" => "Y",
+                                "FILTER_NAME" => $arParams["FILTER_NAME"],
+                                "FILTER_VIEW_MODE" => "vertical",
+                                "HIDE_NOT_AVAILABLE" => "N",
+                                "IBLOCK_ID" => "113",
+                                "IBLOCK_TYPE" => "113",
+//                            "PAGER_PARAMS_NAME" => "arrPager",
+                                "POPUP_POSITION" => "left",
+                                "PREFILTER_NAME" => "smartPreFilter",
+                                "PRICE_CODE" => array(
+                                    0 => "BASE",
+                                    1 => "ИП",
+                                    2 => "РозничнаяИМ",
+                                    3 => "Gektar",
+                                    4 => "Типовые правила продаж",
+                                ),
+                                "SAVE_IN_SESSION" => "N",
+                                "SECTION_CODE" => "#SECTION_CODE#",
+                                "SECTION_CODE_PATH" => "#SECTION_CODE_PATH#",
+                                "SECTION_DESCRIPTION" => "-",
+                                "SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
+                                "SECTION_TITLE" => "-",
+                                "SEF_MODE" => 'Y',
+                                "SEF_RULE" => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["smart_filter"],
+                                "SMART_FILTER_PATH" => $arResult["VARIABLES"]["SMART_FILTER_PATH"],
+                                "TEMPLATE_THEME" => "blue",
+                                "XML_EXPORT" => "N",
+                                "COMPONENT_TEMPLATE" => "visual_vertical"
+                            ),
+                            false
+                        );
+                        ?>
+                    </div>
+                </section>
             </div>
-        </form>
+            <div class="col-12 col-lg-9 js-main-content" role="main">
+
+                <? $APPLICATION->IncludeComponent(
+                    "bitrix:catalog.section",
+                    "",
+                    array(
+                        "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+                        "IBLOCK_ID" => $arParams["IBLOCK_ID"],
+//						"ELEMENT_SORT_FIELD" => $arParams["ELEMENT_SORT_FIELD"],
+                        "ELEMENT_SORT_FIELD" => $sort,
+//						"ELEMENT_SORT_ORDER" => $arParams["ELEMENT_SORT_ORDER"],
+                        "ELEMENT_SORT_ORDER" => $sort_order,
+                        "PROPERTY_CODE" => $arParams["LIST_PROPERTY_CODE"],
+                        "META_KEYWORDS" => $arParams["LIST_META_KEYWORDS"],
+                        "META_DESCRIPTION" => $arParams["LIST_META_DESCRIPTION"],
+                        "BROWSER_TITLE" => $arParams["LIST_BROWSER_TITLE"],
+                        "INCLUDE_SUBSECTIONS" => $arParams["INCLUDE_SUBSECTIONS"],
+                        "BASKET_URL" => $arParams["BASKET_URL"],
+                        "ACTION_VARIABLE" => $arParams["ACTION_VARIABLE"],
+                        "PRODUCT_ID_VARIABLE" => $arParams["PRODUCT_ID_VARIABLE"],
+                        "SECTION_ID_VARIABLE" => $arParams["SECTION_ID_VARIABLE"],
+                        "FILTER_NAME" => $arParams["FILTER_NAME"],
+                        "DISPLAY_PANEL" => $arParams["DISPLAY_PANEL"],
+                        "CACHE_TYPE" => $arParams["CACHE_TYPE"],
+                        "CACHE_TIME" => $arParams["CACHE_TIME"],
+                        "SET_VIEWED_IN_COMPONENT" => 'Y',
+                        "CACHE_FILTER" => $arParams["CACHE_FILTER"],
+                        "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+                        "SET_TITLE" => $arParams["SET_TITLE"],
+                        "SET_STATUS_404" => $arParams["SET_STATUS_404"],
+                        "DISPLAY_COMPARE" => $arParams["USE_COMPARE"],
+                        "PAGE_ELEMENT_COUNT" => $arParams["PAGE_ELEMENT_COUNT"],
+                        "LINE_ELEMENT_COUNT" => $arParams["LINE_ELEMENT_COUNT"],
+                        "PRICE_CODE" => $arParams["PRICE_CODE"],
+                        "USE_PRICE_COUNT" => $arParams["USE_PRICE_COUNT"],
+                        "SHOW_PRICE_COUNT" => $arParams["SHOW_PRICE_COUNT"],
+
+                        "PRICE_VAT_INCLUDE" => $arParams["PRICE_VAT_INCLUDE"],
+
+                        "DISPLAY_TOP_PAGER" => $arParams["DISPLAY_TOP_PAGER"],
+                        "DISPLAY_BOTTOM_PAGER" => $arParams["DISPLAY_BOTTOM_PAGER"],
+                        "PAGER_TITLE" => $arParams["PAGER_TITLE"],
+                        "PAGER_SHOW_ALWAYS" => $arParams["PAGER_SHOW_ALWAYS"],
+                        "PAGER_TEMPLATE" => $arParams["PAGER_TEMPLATE"],
+                        "PAGER_DESC_NUMBERING" => $arParams["PAGER_DESC_NUMBERING"],
+                        "PAGER_DESC_NUMBERING_CACHE_TIME" => $arParams["PAGER_DESC_NUMBERING_CACHE_TIME"],
+                        "PAGER_SHOW_ALL" => $arParams["PAGER_SHOW_ALL"],
+
+                        "OFFERS_CART_PROPERTIES" => $arParams["OFFERS_CART_PROPERTIES"],
+                        "OFFERS_FIELD_CODE" => $arParams["LIST_OFFERS_FIELD_CODE"],
+                        "OFFERS_PROPERTY_CODE" => $arParams["LIST_OFFERS_PROPERTY_CODE"],
+                        "OFFERS_SORT_FIELD" => $arParams["OFFERS_SORT_FIELD"],
+                        "OFFERS_SORT_ORDER" => $arParams["OFFERS_SORT_ORDER"],
+                        "OFFERS_LIMIT" => $arParams["LIST_OFFERS_LIMIT"],
+
+                        "SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
+                        "SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
+                        "SECTION_URL" => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["section"],
+                        "DETAIL_URL" => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["element"],
+
+                    ),
+                    $component
+                ); ?>
+
+                <!-- Pagination -->
+            </div>
+        </div>
     </section>
 
-
-    <div class="sort_filter">
-
-    </div>
-    <!--/noindex-->
-
-    <div class="catalog__main row">
-        <div class="col-12 mb-3 mb-lg-0 col-lg-3" role="complementary">
-            <section class="section section_padding d-none d-lg-block">
-				<?php
-                // Фильтры
-
-                    $APPLICATION->IncludeComponent(
-                        "bitrix:catalog.smart.filter",
-                        "profnastil",
-                        array(
-                            "CACHE_GROUPS" => "Y",
-                            "CACHE_TIME" => "36000000",
-                            "CACHE_TYPE" => "A",
-                            "CONVERT_CURRENCY" => "N",
-                            "DISPLAY_ELEMENT_COUNT" => "Y",
-                            "FILTER_NAME" => $arParams["FILTER_NAME"],
-                            "FILTER_VIEW_MODE" => "vertical",
-                            "HIDE_NOT_AVAILABLE" => "N",
-                            "IBLOCK_ID" => "113",
-                            "IBLOCK_TYPE" => "113",
-//                            "PAGER_PARAMS_NAME" => "arrPager",
-                            "POPUP_POSITION" => "left",
-                            "PREFILTER_NAME" => "smartPreFilter",
-                            "PRICE_CODE" => array(
-                                0 => "BASE",
-                                1 => "ИП",
-                                2 => "РозничнаяИМ",
-                                3 => "Gektar",
-                                4 => "Типовые правила продаж",
-                            ),
-                            "SAVE_IN_SESSION" => "N",
-                            "SECTION_CODE" => "#SECTION_CODE#",
-                            "SECTION_CODE_PATH" => "#SECTION_CODE_PATH#",
-                            "SECTION_DESCRIPTION" => "-",
-                            "SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
-                            "SECTION_TITLE" => "-",
-                            "SEF_MODE" => 'Y',
-                            "SEF_RULE" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["smart_filter"],
-                            "SMART_FILTER_PATH" => $arResult["VARIABLES"]["SMART_FILTER_PATH"],
-                            "TEMPLATE_THEME" => "blue",
-                            "XML_EXPORT" => "N",
-                            "COMPONENT_TEMPLATE" => "visual_vertical"
-                        ),
-                        false
-                    );
-                    ?>
-
-                    <?
-//                    $APPLICATION->IncludeComponent("bitrix:catalog.smart.filter", "", [], false);
-//                } else {
-//                    $APPLICATION->IncludeComponent("bitrix:catalog.smart.filter", "", [], false);
-//                }
-                 ?>
-            </section>
-        </div>
-        <div class="col-12 col-lg-9" role="main">
-				
-				<?$APPLICATION->IncludeComponent(
-					"bitrix:catalog.section",
-					"",
-					Array(
-						"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-						"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-//						"ELEMENT_SORT_FIELD" => $arParams["ELEMENT_SORT_FIELD"],
-						"ELEMENT_SORT_FIELD" => $sort,
-//						"ELEMENT_SORT_ORDER" => $arParams["ELEMENT_SORT_ORDER"],
-						"ELEMENT_SORT_ORDER" => $sort_order,
-						"PROPERTY_CODE" => $arParams["LIST_PROPERTY_CODE"],
-						"META_KEYWORDS" => $arParams["LIST_META_KEYWORDS"],
-						"META_DESCRIPTION" => $arParams["LIST_META_DESCRIPTION"],
-						"BROWSER_TITLE" => $arParams["LIST_BROWSER_TITLE"],
-						"INCLUDE_SUBSECTIONS" => $arParams["INCLUDE_SUBSECTIONS"],
-						"BASKET_URL" => $arParams["BASKET_URL"],
-						"ACTION_VARIABLE" => $arParams["ACTION_VARIABLE"],
-						"PRODUCT_ID_VARIABLE" => $arParams["PRODUCT_ID_VARIABLE"],
-						"SECTION_ID_VARIABLE" => $arParams["SECTION_ID_VARIABLE"],
-						"FILTER_NAME" => $arParams["FILTER_NAME"],
-						"DISPLAY_PANEL" => $arParams["DISPLAY_PANEL"],
-						"CACHE_TYPE" => $arParams["CACHE_TYPE"],
-						"CACHE_TIME" => $arParams["CACHE_TIME"],
-						"SET_VIEWED_IN_COMPONENT" => 'Y',
-						"CACHE_FILTER" => $arParams["CACHE_FILTER"],
-						"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
-						"SET_TITLE" => $arParams["SET_TITLE"],
-						"SET_STATUS_404" => $arParams["SET_STATUS_404"],
-						"DISPLAY_COMPARE" => $arParams["USE_COMPARE"],
-						"PAGE_ELEMENT_COUNT" => $arParams["PAGE_ELEMENT_COUNT"],
-						"LINE_ELEMENT_COUNT" => $arParams["LINE_ELEMENT_COUNT"],
-						"PRICE_CODE" => $arParams["PRICE_CODE"],
-						"USE_PRICE_COUNT" => $arParams["USE_PRICE_COUNT"],
-						"SHOW_PRICE_COUNT" => $arParams["SHOW_PRICE_COUNT"],
-
-						"PRICE_VAT_INCLUDE" => $arParams["PRICE_VAT_INCLUDE"],
-
-						"DISPLAY_TOP_PAGER" => $arParams["DISPLAY_TOP_PAGER"],
-						"DISPLAY_BOTTOM_PAGER" => $arParams["DISPLAY_BOTTOM_PAGER"],
-						"PAGER_TITLE" => $arParams["PAGER_TITLE"],
-						"PAGER_SHOW_ALWAYS" => $arParams["PAGER_SHOW_ALWAYS"],
-						"PAGER_TEMPLATE" => $arParams["PAGER_TEMPLATE"],
-						"PAGER_DESC_NUMBERING" => $arParams["PAGER_DESC_NUMBERING"],
-						"PAGER_DESC_NUMBERING_CACHE_TIME" => $arParams["PAGER_DESC_NUMBERING_CACHE_TIME"],
-						"PAGER_SHOW_ALL" => $arParams["PAGER_SHOW_ALL"],
-
-						"OFFERS_CART_PROPERTIES" => $arParams["OFFERS_CART_PROPERTIES"],
-						"OFFERS_FIELD_CODE" => $arParams["LIST_OFFERS_FIELD_CODE"],
-						"OFFERS_PROPERTY_CODE" => $arParams["LIST_OFFERS_PROPERTY_CODE"],
-						"OFFERS_SORT_FIELD" => $arParams["OFFERS_SORT_FIELD"],
-						"OFFERS_SORT_ORDER" => $arParams["OFFERS_SORT_ORDER"],
-						"OFFERS_LIMIT" => $arParams["LIST_OFFERS_LIMIT"],
-
-						"SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
-						"SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
-						"SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
-						"DETAIL_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["element"],
-
-					),
-					$component
-				);?>
-
-            <!-- Pagination -->
-        </div>
-    </div>
-</section>
-
-<!-- Recently watched products -->
+    <!-- Recently watched products -->
 <?php
 // Демо данные недавно просмотренных
 $recentlyWatchedProducts = [
     [
-        "NAME"  => "Смеситель для ванны и душа GROHE BauEdge 23334000 с коротким изливом однорычажный без лейки",
-        "LINK"  => "/",
+        "NAME" => "Смеситель для ванны и душа GROHE BauEdge 23334000 с коротким изливом однорычажный без лейки",
+        "LINK" => "/",
         "IMAGE" => "/images/demo/product-2.jpg",
         "PRICE" => "3 000",
     ], [
-        "NAME"      => "Смеситель для ванны и душа GROHE BauEdge 23334000 с коротким изливом однорычажный без лейки",
-        "LINK"      => "/",
-        "IMAGE"     => "/images/demo/product-2.jpg",
-        "PRICE"     => "70 000",
+        "NAME" => "Смеситель для ванны и душа GROHE BauEdge 23334000 с коротким изливом однорычажный без лейки",
+        "LINK" => "/",
+        "IMAGE" => "/images/demo/product-2.jpg",
+        "PRICE" => "70 000",
         "OLD_PRICE" => "200 000"
     ], [
-        "NAME"  => "Смеситель для ванны и душа GROHE BauEdge 23334000 с коротким изливом однорычажный без лейки",
-        "LINK"  => "/",
+        "NAME" => "Смеситель для ванны и душа GROHE BauEdge 23334000 с коротким изливом однорычажный без лейки",
+        "LINK" => "/",
         "IMAGE" => "/images/demo/product-2.jpg",
         "PRICE" => "11 000",
     ], [
-        "NAME"  => "Смеситель для ванны и душа GROHE BauEdge 23334000 с коротким изливом однорычажный без лейки",
-        "LINK"  => "/",
+        "NAME" => "Смеситель для ванны и душа GROHE BauEdge 23334000 с коротким изливом однорычажный без лейки",
+        "LINK" => "/",
         "IMAGE" => "/images/demo/product-2.jpg",
         "PRICE" => "15 000",
     ], [
-        "NAME"  => "Смеситель для ванны и душа GROHE BauEdge 23334000 с коротким изливом однорычажный без лейки",
-        "LINK"  => "/",
+        "NAME" => "Смеситель для ванны и душа GROHE BauEdge 23334000 с коротким изливом однорычажный без лейки",
+        "LINK" => "/",
         "IMAGE" => "/images/demo/product-2.jpg",
         "PRICE" => "34 000",
     ],
 ];
 ?>
-<!---->
-<?$APPLICATION->IncludeComponent(
+    <!---->
+<? $APPLICATION->IncludeComponent(
     "bitrix:catalog.products.viewed",
     "test",
-    Array(
+    array(
         "ACTION_VARIABLE" => "action_cpv",
         "ADDITIONAL_PICT_PROP_101" => "-",
         "ADDITIONAL_PICT_PROP_111" => "-",
@@ -373,17 +367,17 @@ $recentlyWatchedProducts = [
         "CACHE_GROUPS" => "Y",
         "CACHE_TIME" => "3600",
         "CACHE_TYPE" => "A",
-        "CART_PROPERTIES_101" => array("",""),
+        "CART_PROPERTIES_101" => array("", ""),
         "CART_PROPERTIES_111" => array(""),
-        "CART_PROPERTIES_112" => array("",""),
+        "CART_PROPERTIES_112" => array("", ""),
         "CART_PROPERTIES_113" => array(""),
-        "CART_PROPERTIES_115" => array("",""),
+        "CART_PROPERTIES_115" => array("", ""),
         "CART_PROPERTIES_14" => array(""),
         "CART_PROPERTIES_86" => array(""),
         "CART_PROPERTIES_87" => array(""),
         "CART_PROPERTIES_88" => array(""),
-        "CART_PROPERTIES_93" => array("",""),
-        "CART_PROPERTIES_94" => array("",""),
+        "CART_PROPERTIES_93" => array("", ""),
+        "CART_PROPERTIES_94" => array("", ""),
         "CONVERT_CURRENCY" => "N",
         "DEPTH" => "2",
         "DISPLAY_COMPARE" => "N",
@@ -427,17 +421,17 @@ $recentlyWatchedProducts = [
         "PRODUCT_QUANTITY_VARIABLE" => "quantity",
         "PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false},{'VARIANT':'2','BIG_DATA':false}]",
         "PRODUCT_SUBSCRIPTION" => "Y",
-        "PROPERTY_CODE_101" => array("",""),
+        "PROPERTY_CODE_101" => array("", ""),
         "PROPERTY_CODE_111" => array(""),
-        "PROPERTY_CODE_112" => array("",""),
+        "PROPERTY_CODE_112" => array("", ""),
         "PROPERTY_CODE_113" => array(""),
-        "PROPERTY_CODE_115" => array("",""),
+        "PROPERTY_CODE_115" => array("", ""),
         "PROPERTY_CODE_14" => array(""),
         "PROPERTY_CODE_86" => array(""),
         "PROPERTY_CODE_87" => array(""),
         "PROPERTY_CODE_88" => array(""),
-        "PROPERTY_CODE_93" => array("",""),
-        "PROPERTY_CODE_94" => array("",""),
+        "PROPERTY_CODE_93" => array("", ""),
+        "PROPERTY_CODE_94" => array("", ""),
         "PROPERTY_CODE_MOBILE_111" => array(""),
         "PROPERTY_CODE_MOBILE_113" => array(),
         "PROPERTY_CODE_MOBILE_14" => array(""),
@@ -468,21 +462,21 @@ $recentlyWatchedProducts = [
         "USE_PRICE_COUNT" => "N",
         "USE_PRODUCT_QUANTITY" => "N"
     )
-);?>
-<?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.section.list",
-	"description",
-	Array(
-		"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
-		"IBLOCK_ID" => $arParams["IBLOCK_ID"],
-		"SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
-		"SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
-		"DISPLAY_PANEL" => "N",
-		"CACHE_TYPE" => $arParams["CACHE_TYPE"],
-		"CACHE_TIME" => $arParams["CACHE_TIME"],
-		"CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
+); ?>
+<? $APPLICATION->IncludeComponent(
+    "bitrix:catalog.section.list",
+    "description",
+    array(
+        "IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],
+        "IBLOCK_ID" => $arParams["IBLOCK_ID"],
+        "SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
+        "SECTION_CODE" => $arResult["VARIABLES"]["SECTION_CODE"],
+        "DISPLAY_PANEL" => "N",
+        "CACHE_TYPE" => $arParams["CACHE_TYPE"],
+        "CACHE_TIME" => $arParams["CACHE_TIME"],
+        "CACHE_GROUPS" => $arParams["CACHE_GROUPS"],
 
-		"SECTION_URL" => $arResult["FOLDER"].$arResult["URL_TEMPLATES"]["section"],
-	),
-	$component
-);?>
+        "SECTION_URL" => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["section"],
+    ),
+    $component
+); ?>

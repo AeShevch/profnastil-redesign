@@ -1,5 +1,5 @@
 <div class="mobile-filter-wrap modal fade" id="filter-mobile" tabindex="-1"
-     aria-labelledby="mobile-filter-title" aria-hidden="true">
+     aria-labelledby="mobile-filter-title" aria-hidden="true">`
     <div class="modal-dialog modal-dialog-scrollable m-0 h-100">
         <div class="modal-content min-vh-100">
             <div class="mobile-filter-wrap__header modal-header">
@@ -18,7 +18,7 @@
                         type="button"></button>
             </div>
             <div class="modal-body">
-				<?$APPLICATION->IncludeComponent("bitrix:catalog.smart.filter", "", Array("IS_MOBILE" => true,), [], false); ?>
+                <? $APPLICATION->IncludeComponent("bitrix:catalog.smart.filter", "profnastil", array("IS_MOBILE" => true,), [], false); ?>
             </div>
             <div class="mobile-filter-wrap__footer modal-footer">
                 <button class="mobile-filter-wrap__submit button"

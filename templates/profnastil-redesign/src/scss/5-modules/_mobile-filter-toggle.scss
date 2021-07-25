@@ -1,0 +1,47 @@
+.mobile-filter-toggle {
+  display: flex;
+  align-items: center;
+  padding: 1.4em;
+
+  &__button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: calc(1em - 2px) 2em;
+    box-shadow: var(--base-shadow);
+    background-color: var(--white);
+    border-radius: var(--base-radius);
+    font-weight: 600;
+    transition: transform var(--transition-time);
+
+    svg {
+      margin-right: .5em;
+    }
+
+    span {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 1.57em;
+      height: 1.57em;
+      margin-left: .5em;
+      border-radius: var(--base-radius);
+      color: var(--white);
+      font-size: calc(1em - 2px);
+      font-weight: 700;
+      background-color: var(--accent);
+    }
+
+    &:active {
+      transform: scale(.9);
+    }
+
+    @include focus(focus-visible);
+    @include active;
+  }
+
+  &__products-count {
+    color: var(--light-text-gray);
+    margin-left: 1.42em;
+  }
+}
