@@ -194,13 +194,10 @@ $this->setFrameMode(true);
     <!--/noindex-->
 
     <div class="catalog__main row">
-        <div class="col-12 mb-3 col-lg-3" role="complementary">
-            <div class="h-100 js-sidebar">
-                <section class="js-sidebar-inner section section_padding d-none d-lg-block">
-                    <?php
-                    // Фильтры
-                    echo '<pre>'; print_r($_REQUEST["SMART_FILTER_PATH"]); echo '</pre>';
-                    echo '<pre>'; print_r($arParams['smart_filter']); echo '</pre>';
+        <div class="col-12 mb-3 mb-lg-0 col-lg-3" role="complementary">
+            <section class="section section_padding d-none d-lg-block">
+				<?php
+                // Фильтры
 
                     $APPLICATION->IncludeComponent(
                         "bitrix:catalog.smart.filter",
@@ -242,10 +239,16 @@ $this->setFrameMode(true);
                         false
                     );
                     ?>
-                </section>
-            </div>
+
+                    <?
+//                    $APPLICATION->IncludeComponent("bitrix:catalog.smart.filter", "", [], false);
+//                } else {
+//                    $APPLICATION->IncludeComponent("bitrix:catalog.smart.filter", "", [], false);
+//                }
+                 ?>
+            </section>
         </div>
-        <div class="col-12 col-lg-9 js-main-content" role="main">
+        <div class="col-12 col-lg-9" role="main">
 				
 				<?$APPLICATION->IncludeComponent(
 					"bitrix:catalog.section",
@@ -414,7 +417,7 @@ $recentlyWatchedProducts = [
         "OFFER_TREE_PROPS_115" => array(),
         "OFFER_TREE_PROPS_93" => array(),
         "OFFER_TREE_PROPS_94" => array(),
-        "PAGE_ELEMENT_COUNT" => "9",
+        "PAGE_ELEMENT_COUNT" => "5",
         "PARTIAL_PRODUCT_PROPERTIES" => "N",
         "PRICE_CODE" => array("Типовые правила продаж"),
         "PRICE_VAT_INCLUDE" => "Y",

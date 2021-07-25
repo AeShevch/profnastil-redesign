@@ -150,7 +150,7 @@
 		"COMPATIBLE_MODE" => "Y",
 		"CONVERT_CURRENCY" => "N",
 		"CUSTOM_FILTER" => "{\"CLASS_ID\":\"CondGroup\",\"DATA\":{\"All\":\"OR\",\"True\":\"True\"},\"CHILDREN\":[]}",
-		"DETAIL_URL" => "#SECTION_CODE_PATH#/#ELEMENT_CODE#/",
+		"DETAIL_URL" => "/catalog/#SECTION_CODE_PATH#/#ELEMENT_CODE#/",
 		"DISPLAY_COMPARE" => "N",
 		"ELEMENT_COUNT" => "6",
 		"ELEMENT_SORT_FIELD" => "sort",

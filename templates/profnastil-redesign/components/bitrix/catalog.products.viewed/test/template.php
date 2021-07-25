@@ -244,8 +244,10 @@ if (!empty($arResult['ITEMS'])) {
 
 <!--                            --><?//echo '<pre>'; print_r($arItem); echo '</pre>';?>
                             <a id="<? echo $arItemIDs['PICT']; ?>" href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" title="<?=$arItem['NAME']?>" class="catalog-item__image">
-                                <img src="<?php echo !empty($arItem["PREVIEW_PICTURE"]["SRC"]) ? $arItem["PREVIEW_PICTURE"]["SRC"] : SITE_TEMPLATE_PATH . "/images/product-placeholder.jpeg" ?>" aria-labelledby="catalog-item-title-0" alt="<?=$arItem['NAME']?>" loading="lazy" width="206" height="160">
+                                <img src="<?=$arItem['PREVIEW_PICTURE']['SRC']?>" aria-labelledby="catalog-item-title-0" alt="<?=$arItem['NAME']?>" loading="lazy" width="206" height="160">
                             </a>
+
+
 
                             <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="catalog-item__link mb-3" title="<?=$arItem['NAME']?>">
                                 <h3 class="catalog-item__title" id="catalog-item-title-0"><?=$arItem['NAME']?></h3>
@@ -261,19 +263,16 @@ if (!empty($arResult['ITEMS'])) {
 
                                 <?endif;?>
                             </div>
-                            <form action="<?=POST_FORM_ACTION_URI?>" method="post" enctype="multipart/form-data">
-                                <input type="hidden" name="<?echo $arParams["ACTION_VARIABLE"]?>" value="BUY">
-                                <input type="hidden" name="<?echo $arParams["PRODUCT_ID_VARIABLE"]?>" value="<?echo $arItem["ID"]?>">
-                                <button class="catalog-item__add-to-cart button w-100"
-                                        type="submit"
-                                        name="<?echo $arParams["ACTION_VARIABLE"]."ADD2BASKET"?>"
-                                        aria-label="Добавить в корзину">
-                                    <svg class="me-1" width="16" height="16">
-                                        <use xlink:href="#icon_cart-thin"></use>
-                                    </svg>
-                                    Купить
-                                </button>
-                            </form>
+                            <button class="catalog-item__add-to-cart button w-100"
+                                    id="<? echo $arItemIDs['BUY_LINK']; ?>"
+                                    type="submit"
+                                    name="<? echo $arParams["ACTION_VARIABLE"] . "ADD2BASKET" ?>"
+                                    aria-label="Добавить в корзину">
+                                <svg class="me-1" width="16" height="16">
+                                    <use xlink:href="#icon_cart-thin"></use>
+                                </svg>
+                                Купить
+                            </button>
                             </article>
                     </li>
                         <?

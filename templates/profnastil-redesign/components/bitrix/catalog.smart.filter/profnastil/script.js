@@ -559,18 +559,23 @@ BX.Iblock.SmartFilter = (function()
         {
             var priceDiff = this.fltMinPrice - this.minPrice;
             this.fltMinPercent = (priceDiff*100)/this.priceDiff;
+            if(this.colorAvailableActive){
+                if (this.leftPercent > this.fltMinPercent)
+                    this.colorAvailableActive.style.left = this.leftPercent + "%";
+                else
+                    this.colorAvailableActive.style.left = this.fltMinPercent + "%";
+            }
 
-            if (this.leftPercent > this.fltMinPercent)
-                this.colorAvailableActive.style.left = this.leftPercent + "%";
-            else
-                this.colorAvailableActive.style.left = this.fltMinPercent + "%";
-
-            this.colorAvailableInactive.style.left = this.fltMinPercent + "%";
+            if(this.colorAvailableInactive)
+                this.colorAvailableInactive.style.left = this.fltMinPercent + "%";
         }
         else
         {
-            this.colorAvailableActive.style.left = "0%";
-            this.colorAvailableInactive.style.left = "0%";
+            if(this.colorAvailableActive){
+                this.colorAvailableActive.style.left = "0%";
+                this.colorAvailableInactive.style.left = "0%";
+            }
+
         }
     };
 
@@ -582,17 +587,23 @@ BX.Iblock.SmartFilter = (function()
             var priceDiff = this.maxPrice - this.fltMaxPrice;
             this.fltMaxPercent = (priceDiff*100)/this.priceDiff;
 
-            if (this.rightPercent > this.fltMaxPercent)
-                this.colorAvailableActive.style.right = this.rightPercent + "%";
-            else
-                this.colorAvailableActive.style.right = this.fltMaxPercent + "%";
+            if(this.colorAvailableActive){
+                if (this.rightPercent > this.fltMaxPercent)
+                    this.colorAvailableActive.style.right = this.rightPercent + "%";
+                else
+                    this.colorAvailableActive.style.right = this.fltMaxPercent + "%";
+            }
 
-            this.colorAvailableInactive.style.right = this.fltMaxPercent + "%";
+            if(this.colorAvailableInactive)
+                this.colorAvailableInactive.style.right = this.fltMaxPercent + "%";
         }
         else
         {
-            this.colorAvailableActive.style.right = "0%";
-            this.colorAvailableInactive.style.right = "0%";
+            if(this.colorAvailableActive){
+                this.colorAvailableActive.style.right = "0%";
+                this.colorAvailableInactive.style.right = "0%";
+            }
+
         }
     };
 

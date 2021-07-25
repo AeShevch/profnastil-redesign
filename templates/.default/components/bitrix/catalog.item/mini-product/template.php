@@ -15,7 +15,7 @@ $oldPrice = str_replace(".00 руб", " р.", $arResult["ITEM"]["PRICES"]["Ти�
     <a href="<?= $arResult["ITEM"]["DETAIL_PAGE_URL"] ?>"
        class="product-card__link">
         <img class="product-card__image"
-             src="<?php echo !empty($arParams["IMAGES"]["SRC"]) ? $arParams["IMAGES"]["SRC"] : SITE_TEMPLATE_PATH . "/images/product-placeholder.jpeg" ?>"
+             src="<?= $arResult["ITEM"]["PREVIEW_PICTURE"]["SRC"] ?>"
              alt="<?= $arResult["ITEM"]["PREVIEW_PICTURE"]["ALT"] ?>"
              title="<?= $arResult["ITEM"]["PREVIEW_PICTURE"]["TITLE"] ?>"
              loading="lazy"
