@@ -7,52 +7,73 @@
 
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
-//echo "<pre>";
-//print_r($arResult);
-//echo "</pre>";
+//    echo "<pre>";
+//    print_r($arResult);
+//    echo "</pre>";
+
+$SPECS_TO_EXCLUDE = [
+    "MAKSIMALNAYA_SKIDKA_PROTSENT",
+    "NOVYY_TOVAR",
+    "SNIZHENA_TSENA",
+    "TOVAR_LENTY",
+    "CML2_BASE_UNIT",
+    "CML2_TAXES",
+    "CML2_TRAITS",
+    "CML2_ARTICLE",
+    "STARAYA_TSENA_PRI_SNIZHENII",
+    "MU_VREMYA_OKONCHANIYA",
+    "SORT",
+    "KATEGORIYA_TOVARA",
+    "OPYAT_V_PRODAZHE",
+    "NAIMENOVANIE_TOVARA",
+    "KOD_TSVETA",
+    "FILES",
+];
 ?>
 
-<article class="product">
+<article class="product mb-3">
     <div class="row align-items-end mb-3">
-        <div class="col-8">
+        <div class="col">
             <h1 class="product__title">
                 <?php echo $arResult["NAME"] ?>
             </h1>
         </div>
-        <div class="col-4">
+
+        <?php if (!empty($arResult["PROPERTIES"]["CML2_ARTICLE"]["VALUE"])) : ?>
+        <div class="col-3">
             <div class="row">
-                <div class="col-9">
-                    <dl class="description-list description-list_row">
-                        <div class="description-list__item">
-                            <dt class="description-list__title">Код товара:</dt>
-                            <dd class="description-list__value"><?php echo $arResult["PROPERTIES"]["KOD"]["VALUE"] ?></dd>
-                        </div>
-                        <div class="description-list__item">
-                            <dt class="description-list__title">P/N:</dt>
-                            <dd class="description-list__value">MX9R2RU/A</dd>
+                <div class="col-12">
+                    <dl class="description-list description-list_row mb-0">
+                        <div class="description-list__item d-flex justify-content-end">
+                            <dt class="description-list__title">Артикул:&nbsp;</dt>
+                            <dd class="description-list__value mb-0"><?php echo $arResult["PROPERTIES"]["CML2_ARTICLE"]["VALUE"] ?></dd>
                         </div>
                     </dl>
                 </div>
-                <div class="col-3">
-                    <svg class="product__premium-icon" width="76" height="22">
-                        <use xlink:href="#icon_apple-premium"></use>
-                    </svg>
-                </div>
             </div>
         </div>
+        <?php endif; ?>
     </div>
     <form action="" name="product-form" class="product__main section">
         <div class="row">
-            <div class="product__col">
+            <div class="col-7">
                 <div class="row">
                     <div class="col-12 mb-2">
                         <div class="product__labels product-labels">
                             <ul class="product-labels__list product-labels__list_row list-reset">
-                                <li>
-                                    <mark class="product-labels__item">
-                                        Скидка 10%
-                                    </mark>
-                                </li>
+                                <?php if ($arResult["PROPERTIES"]["NOVYY_TOVAR"]["VALUE"] !== "Нет") : ?>
+                                    <li>
+                                        <mark class="product-labels__item">
+                                            Новинка
+                                        </mark>
+                                    </li>
+                                <?php elseif ($arResult["PROPERTIES"]["SNIZHENA_TSENA"]["VALUE"] !== "Нет") : ?>
+                                    <li>
+                                        <mark class="product-labels__item">
+                                            Скидка
+                                        </mark>
+                                    </li>
+                                <?php endif; ?>
                             </ul>
                         </div>
                     </div>
@@ -71,7 +92,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
                     </div>
                 </div>
             </div>
-            <div class="product__col border-start">
+            <div class="col-5 border-start">
                 <div class="product__prices product-prices">
                     <div class="product-prices__row">
                         <fieldset class="count-field me-4">
@@ -103,21 +124,23 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
                                 </button>
                             </div>
                         </fieldset>
-                        <span class="product-prices__old me-3">
-                            120 000 ₽
-                        </span>
+                        <?php if($arResult["PROPERTIES"]["STARAYA_TSENA_PRI_SNIZHENII"]["VALUE"] !== "0") : ?>
+                            <span class="product-prices__old me-3">
+                                 <?php echo $arResult["PROPERTIES"]["STARAYA_TSENA_PRI_SNIZHENII"]["VALUE"] ?> ₽
+                            </span>
+                        <?php endif; ?>
                         <span class="product-prices__main">
-                            120 000 ₽
+                            <?php echo $arResult["PRICES"]["Типовые правила продаж"]["VALUE"] ?> ₽
                         </span>
                     </div>
-                    <span class="product-prices__total">
-                        итого:
-                        <b>4 700 000 ₽</b>
-                    </span>
+<!--                    <span class="product-prices__total">-->
+<!--                        итого:-->
+<!--                        <b>4 700 000 ₽</b>-->
+<!--                    </span>-->
                 </div>
                 <div class="product__controls product-controls">
-                    <div class="row">
-                        <div class="col-7">
+                    <div class="row justify-content-end">
+                        <div class="col-5">
                             <a aria-label="Добавить в корзину"
                                class="product-controls__add-to-cart button button_size_high w-100"
                                href="<?php echo $arResult["ADD_URL"] ?>"
@@ -195,19 +218,24 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
                         </div>
                     </div>
                 </div>
+                <dl class="product__specs specs-list">
+                    <?php foreach ($arResult["PROPERTIES"] as $spec) : ?>
+                        <?php if (!in_array($spec["CODE"], $SPECS_TO_EXCLUDE) && !empty($spec["VALUE"])) : ?>
+                            <div class="specs-list__item">
+                                <dt class="specs-list__title"><?php echo $spec["NAME"] ?>:</dt>
+                                <dd class="specs-list__value"><?php echo $spec["VALUE"] ?></dd>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+                </dl>
             </div>
         </div>
     </form>
-    <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Описание</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Харакетристики</button>
-        </li>
-    </ul>
-    <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
-        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
-    </div>
+
+    <?php if (!empty($arResult["DETAIL_TEXT"])) : ?>
+        <section class="section p-4">
+            <h2>О товаре</h2>
+            <?php echo $arResult["DETAIL_TEXT"] ?>
+        </section>
+    <?php endif; ?>
 </article>
