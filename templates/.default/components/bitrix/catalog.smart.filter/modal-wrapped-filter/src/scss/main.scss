@@ -1,0 +1,50 @@
+.mobile-filter-wrap {
+  font-size: 1rem;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--base-shadow);
+  }
+
+  &__reset {
+    color: var(--secondary);
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    color: var(--black);
+    font-size: 1em;
+    font-weight: 600;
+
+    &:after {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1.8em;
+      height: 1.8em;
+      margin-left: .8em;
+      background-color: var(--accent);
+      border-radius: var(--base-radius);
+      color: var(--white);
+      font-size: calc(1em - 2px);
+      font-weight: 700;
+      content: attr(data-count);
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    margin: 0 10%;
+  }
+
+  &__footer {
+    position: sticky;
+    bottom: 0;
+    box-shadow: var(--large-shadow);
+    background: #fff;
+  }
+}

@@ -1,0 +1,24 @@
+.bread-crumbs {
+  &__list {
+    display: flex;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  &__link {
+    color: var(--light-text-gray);
+    text-decoration: none;
+    margin-right: 1.3em;
+    position: relative;
+
+    &:after {
+      content: "/";
+      position: absolute;
+      right: -0.8em;
+      color: var(--light-text-gray);
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+.count-field {
+  &__inner {
+    display: inline-flex;
+    border: 1px solid var(--border-color);
+    border-radius: var(--big-radius);
+  }
+
+  &__button {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    padding: 0 .57em;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 1.2em;
+
+    &_minus {
+      border-bottom-left-radius: var(--big-radius);
+      border-top-left-radius: var(--big-radius);
+    }
+
+    &_plus {
+      border-top-right-radius: var(--big-radius);
+      border-bottom-right-radius: var(--big-radius);
+    }
+
+    @include focus;
+    @include active;
+
+    &:focus {
+      z-index: 1;
+    }
+  }
+
+  &__input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1.7em;
+    margin: 3px 0;
+    border-color: var(--border-color);
+    border-style: solid;
+    border-width: 0 1px;
+    border-radius: var(--base-radius);
+    appearance: textfield;
+    text-align: center;
+    font-weight: 600;
+
+    @include focus;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+}
