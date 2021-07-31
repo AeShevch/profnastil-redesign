@@ -2,7 +2,6 @@
 $this->setFrameMode(true);
 ?>
 
-
     <section class="catalog">
         <? $APPLICATION->IncludeComponent(
             "bitrix:catalog.section.list",
@@ -42,7 +41,45 @@ $this->setFrameMode(true);
 
                 <?php
                 //             Мобильные Фильтры
-                $APPLICATION->IncludeComponent("bitrix:catalog.smart.filter", "modal-wrapped-filter", [], false); ?>
+                $APPLICATION->IncludeComponent(
+                    "bitrix:catalog.smart.filter",
+                    "modal-wrapped-filter",
+                    array(
+                        "CACHE_GROUPS" => "Y",
+                        "CACHE_TIME" => "36000000",
+                        "CACHE_TYPE" => "A",
+                        "CONVERT_CURRENCY" => "N",
+                        "DISPLAY_ELEMENT_COUNT" => "Y",
+                        "FILTER_NAME" => $arParams["FILTER_NAME"],
+                        "FILTER_VIEW_MODE" => "vertical",
+                        "HIDE_NOT_AVAILABLE" => "N",
+                        "IBLOCK_ID" => "113",
+                        "IBLOCK_TYPE" => "113",
+//                            "PAGER_PARAMS_NAME" => "arrPager",
+                        "POPUP_POSITION" => "left",
+                        "PREFILTER_NAME" => "smartPreFilter",
+                        "PRICE_CODE" => array(
+                            0 => "BASE",
+                            1 => "ИП",
+                            2 => "РозничнаяИМ",
+                            3 => "Gektar",
+                            4 => "Типовые правила продаж",
+                        ),
+                        "SAVE_IN_SESSION" => "N",
+                        "SECTION_CODE" => "#SECTION_CODE#",
+                        "SECTION_CODE_PATH" => "#SECTION_CODE_PATH#",
+                        "SECTION_DESCRIPTION" => "-",
+                        "SECTION_ID" => $arResult["VARIABLES"]["SECTION_ID"],
+                        "SECTION_TITLE" => "-",
+                        "SEF_MODE" => 'Y',
+                        "SEF_RULE" => $arResult["FOLDER"] . $arResult["URL_TEMPLATES"]["smart_filter"],
+                        "SMART_FILTER_PATH" => $arResult["VARIABLES"]["SMART_FILTER_PATH"],
+                        "TEMPLATE_THEME" => "blue",
+                        "XML_EXPORT" => "N",
+                        "COMPONENT_TEMPLATE" => "visual_vertical"
+                    ),
+                    $component
+                ); ?>
             </div>
 
 
@@ -168,15 +205,6 @@ $this->setFrameMode(true);
             $sort = "CATALOG_QUANTITY";
         }
         ?>
-<!--                            <select class="js-choice"-->
-                                <!--                                    data-toggler-styles-reset="true"-->
-                                <!--                                    aria-label="Порядок сортировки товаров"-->
-                                <!--                                    name="sort_by">-->
-                                <!--                                <option value="">По возрастанию цены</option>-->
-                                <!--                                <option value="">Сначала популярные</option>-->
-                                <!--                                <option value="">Сначала недорогие</option>-->
-                                <!--                                <option value="">Со скидками</option>-->
-                                <!--                            </select>-->
 
 
                         </span>

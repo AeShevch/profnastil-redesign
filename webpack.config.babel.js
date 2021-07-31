@@ -90,19 +90,21 @@ Encore.setOutputPath(PATH_TO_ROOT)
 
     // Фильтр в каталоге
     .BXComponentStyle("bitrix:catalog.smart.filter", {
-        siteTemplate: ".default",
+        siteTemplate: "profnastil-redesign",
+        template: "profnastil",
     })
     .BXComponentJs("bitrix:catalog.smart.filter", {
-        siteTemplate: ".default",
+        siteTemplate: "profnastil-redesign",
+        template: "profnastil",
     })
 
     // Обёртка для мобильного фильтра
     .BXComponentStyle("bitrix:catalog.smart.filter", {
-        siteTemplate: ".default",
+        siteTemplate: "profnastil-redesign",
         template: "modal-wrapped-filter",
     })
     .BXComponentJs("bitrix:catalog.smart.filter", {
-        siteTemplate: ".default",
+        siteTemplate: "profnastil-redesign",
         template: "modal-wrapped-filter",
     })
 

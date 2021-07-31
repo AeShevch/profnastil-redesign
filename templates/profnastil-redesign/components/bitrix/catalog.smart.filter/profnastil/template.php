@@ -78,6 +78,7 @@ $templateData = array(
         location.href = url;
     });
 </script>
+
 <div class="clear"></div>
 <div class="bx_filter <?= $templateData["TEMPLATE_CLASS"] ?>">
     <div class="bx_filter_section">
@@ -115,24 +116,26 @@ $templateData = array(
                                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                                     <input
                                                             class="min-price form-control js-range-min me-1"
-                                                            type="text"
+                                                            type="number"
                                                             name="<? echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"] ?>"
                                                             id="<? echo $arItem["VALUES"]["MIN"]["CONTROL_ID"] ?>"
-                                                            value="<? echo $arItem["VALUES"]["MIN"]["HTML_VALUE"] ?>"
-                                                            size="5"
+                                                            aria-label="Минимальная цена"
                                                             onkeyup="smartFilter.keyup(this)"
                                                     />
                                                     –
                                                     <input
                                                             class="max-price form-control js-range-max ms-1"
-                                                            type="text"
+                                                            type="number"
                                                             name="<? echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"] ?>"
                                                             id="<? echo $arItem["VALUES"]["MAX"]["CONTROL_ID"] ?>"
-                                                            value="<? echo $arItem["VALUES"]["MAX"]["HTML_VALUE"] ?>"
-                                                            size="5"
+                                                            aria-label="Максимальная цена"
                                                             onkeyup="smartFilter.keyup(this)"
                                                     />
                                                 </div>
+                                                <div class="js-range-slider"
+                                                     data-min="<? echo $arItem["VALUES"]["MIN"]["VALUE"] ?>"
+                                                     data-max="<? echo $arItem["VALUES"]["MAX"]["VALUE"] ?>"
+                                                     data-step="1000"></div>
                                             </div>
                                         </div>
                                     </div>
