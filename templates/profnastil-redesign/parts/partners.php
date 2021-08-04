@@ -1,42 +1,42 @@
 <?php
 $partners = [
     [
-        "LOGO" => "/images/partners-logos/dell.svg",
+        "LOGO" => "/images/_partners-logos/dell.svg",
         "NAME" => "Dell",
         "LINK" => "/",
     ],
     [
-        "LOGO" => "/images/partners-logos/lenovo.svg",
+        "LOGO" => "/images/_partners-logos/lenovo.svg",
         "NAME" => "Lenovo",
         "LINK" => "/",
     ],
     [
-        "LOGO" => "/images/partners-logos/sony.svg",
+        "LOGO" => "/images/_partners-logos/sony.svg",
         "NAME" => "Sony",
         "LINK" => "/",
     ],
     [
-        "LOGO" => "/images/partners-logos/samsung.svg",
+        "LOGO" => "/images/_partners-logos/samsung.svg",
         "NAME" => "Samsung",
         "LINK" => "/",
     ],
     [
-        "LOGO" => "/images/partners-logos/apple.svg",
+        "LOGO" => "/images/_partners-logos/apple.svg",
         "NAME" => "Apple",
         "LINK" => "/",
     ],
     [
-        "LOGO" => "/images/partners-logos/intel.svg",
+        "LOGO" => "/images/_partners-logos/intel.svg",
         "NAME" => "Intel",
         "LINK" => "/",
     ],
     [
-        "LOGO" => "/images/partners-logos/dell.svg",
+        "LOGO" => "/images/_partners-logos/dell.svg",
         "NAME" => "Dell",
         "LINK" => "/",
     ],
     [
-        "LOGO" => "/images/partners-logos/dell.svg",
+        "LOGO" => "/images/_partners-logos/dell.svg",
         "NAME" => "Dell",
         "LINK" => "/",
     ],

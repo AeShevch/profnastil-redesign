@@ -157,7 +157,7 @@ $this->setFrameMode(true);
                 <li class="col-6 col-lg-3 p-0" id="<?= $this->GetEditAreaId($arElement['ID']); ?>">
                     <article class="catalog-item h-100 d-flex flex-column">
                         <span class="catalog-item__article mb-2">
-                            Артикул: <?php echo $arElement["PROPERTIES"]["CML2_TRAITS"]["VALUE"][2] ?>
+                            Код: <?php echo $arElement["PROPERTIES"]["CML2_TRAITS"]["VALUE"][2] ?>
                         </span>
                         <!-- Product sales -->
                         <div class="catalog-item__labels product-labels">
@@ -269,7 +269,17 @@ $this->setFrameMode(true);
                                 <? endif; ?>
                             <? endforeach; ?>
                         </div>
+                        <span id="<? echo $arItemIDs['QUANTITY_MEASURE']; ?>">
+                                            <?
+                                            if (empty($arItem["PROPERTIES"]["CML2_BASE_UNIT"]["VALUE"])) {
+                                                echo $arItem['CATALOG_MEASURE_NAME'];
 
+                                            }
+                                            else {
+                                                echo $arItem["PROPERTIES"]["CML2_BASE_UNIT"]["VALUE"];
+                                            }
+                                            ?>
+                                        </span>
 
                         <!-- Buy button -->
                         <? if ($arElement["CAN_BUY"]): ?>

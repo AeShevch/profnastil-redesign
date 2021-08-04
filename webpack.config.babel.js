@@ -4,8 +4,8 @@ const Encore = require("./webpackUtils/Encore.extend");
 import path from "path";
 import FriendlyErrorsWebpackPlugin from "friendly-errors-webpack-plugin";
 // раскоментить, если сайт работает в cp1251
-// import EncodingPlugin from 'webpack-encoding-plugin';
-import BComponent from "./webpackUtils/BComponent";
+import EncodingPlugin from 'webpack-encoding-plugin';
+// import BComponent from "./webpackUtils/BComponent";
 
 const PATH_TO_ROOT = "..";
 const TEMPLATE_NAME = "profnastil-redesign";

@@ -45,7 +45,7 @@ $SPECS_TO_EXCLUDE = [
                 <div class="col-12">
                     <dl class="description-list description-list_row mb-0">
                         <div class="description-list__item d-flex justify-content-end">
-                            <dt class="description-list__title">Артикул:&nbsp;</dt>
+                            <dt class="description-list__title">Код:&nbsp;</dt>
                             <dd class="description-list__value mb-0"><?php echo $arResult["PROPERTIES"]["CML2_ARTICLE"]["VALUE"] ?></dd>
                         </div>
                     </dl>

@@ -19,7 +19,7 @@ function declOfNum($num, $titles) {
 }
 ?>
 
-<?print_r($arResult['SECTION']['DESCRIPTION'])?>
+<?//print_r($arResult['SECTION']['DESCRIPTION'])?>
 <div class="d-flex align-items-start mb-2">
 		<h1 class="catalog__title me-2" id="section-title">
 			<?=$arResult['SECTION']['NAME']?>

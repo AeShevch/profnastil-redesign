@@ -226,7 +226,7 @@ function declOfNum($num, $titles)
                                 <li class="col-6 col-lg-3 p-0" id="<?= $this->GetEditAreaId($arElement['ID']); ?>">
                                     <article class="catalog-item h-100 d-flex flex-column">
                                         <span class="catalog-item__article mb-2">
-                                            Артикул: <?php echo $arElement["PROPERTIES"]["CML2_TRAITS"]["VALUE"][2] ?>
+                                            Код: <?php echo $arElement["PROPERTIES"]["CML2_TRAITS"]["VALUE"][2] ?>
                                         </span>
                                         <!-- Product sales -->
                                         <div class="catalog-item__labels product-labels">
