@@ -122,37 +122,6 @@
             return $rsSection;
         }
 
-        public function getJsonDates(&$arFields)
-        {
-            Loader::includeModule('iblock');
-            $iblockID = self::getIblockIdByCode("events");
-            if ($arFields["IBLOCK_ID"] == $iblockID) {
-
-                $formatDate  = [];
-                $counter     = 1;
-                $entityClass = \Bitrix\Iblock\Iblock::wakeUp($iblockID)->getEntityDataClass();
-                $elements    = $entityClass::getList(
-                    [
-                        "select" => [ 'ID', 'NAME', 'IBLOCK_ID', 'EVENT_TIME' ],
-                        "filter" => [ 'ACTIVE' => 'Y' ],
-                        "cache"  => [ 'ttl' => 360000 ],
-                    ]
-                )->fetchCollection();
-                foreach ($elements as $element) {
-                    $formatDate["date" . $counter++] = FormatDate(
-                        'Y-m-d',
-                        MakeTimeStamp($element->getEventTime()->getValue(), "YYYY-MM-DD")
-                    );
-                }
-                if ($formatDate) {
-                    $fileName = Application::getDocumentRoot() . '/upload/json/dates.json';
-                    File::putFileContents($fileName, json_encode($formatDate, JSON_UNESCAPED_UNICODE));
-                }
-            }
-
-            return true;
-        }
-
         /**
          * Метод, сохраняющий в куки utm метки
          *

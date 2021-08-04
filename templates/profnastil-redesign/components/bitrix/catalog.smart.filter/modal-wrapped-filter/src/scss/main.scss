@@ -19,6 +19,21 @@
     color: var(--black);
     font-size: 1em;
     font-weight: 600;
+
+    &:after {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1.8em;
+      height: 1.8em;
+      margin-left: .8em;
+      background-color: var(--accent);
+      border-radius: var(--base-radius);
+      color: var(--white);
+      font-size: calc(1em - 2px);
+      font-weight: 700;
+      content: attr(data-count);
+    }
   }
 
   &__submit {

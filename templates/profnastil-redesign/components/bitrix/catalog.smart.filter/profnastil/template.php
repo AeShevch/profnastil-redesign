@@ -23,7 +23,7 @@ $templateData = array(
 <? if ($arResult["CHECKED_PROPERTIES"]): ?>
     <div class="catalog-controls__applied-filters applied-filters">
         <!--  Reset all filters button-->
-        <button class="applied-filters__item remove-filter-item js-reset-filters button-toggle remove_all" type="button"
+        <button class="applied-filters__item remove-filter-item js-reset-filters button-toggle remove_all mb-1" type="button"
                 aria-label="Удалить фильтр" data-url="<?= $arResult["CANCEL_URLS"]['CLEAR_FILTER'] ?>">
                         <span class="remove-filter-item__value button-toggle__label">
                             Очистить всё
@@ -36,7 +36,7 @@ $templateData = array(
                 <!--                        <span class="label">--><? //=$key?><!--:</span>-->
                 <? if ($control_id != "range"): ?>
 
-                    <button class="applied-filters__item remove-filter-item js-reset-filters button-toggle  btn-remove"
+                    <button class="applied-filters__item remove-filter-item js-reset-filters button-toggle  btn-remove mb-1"
                             data-control="<?= $control_id ?>" type="button" aria-label="Удалить фильтр">
                                 <span class="remove-filter-item__value button-toggle__label">
                                     <?= $key ?>: <?= $value ?>
@@ -46,11 +46,11 @@ $templateData = array(
                 <? else: ?>
                     <? $data_url = count($arResult["CHECKED_PROPERTIES"]) > 1 ? $arResult["CANCEL_URLS"][$key] : $arResult["CANCEL_URLS"]["CLEAR_FILTER"] ?>
 
-                    <button class="applied-filters__item remove-filter-item js-reset-filters button-toggle"
+                    <button class="applied-filters__item remove-filter-item js-reset-filters button-toggle mb-1"
                             type="button" aria-label="Удалить фильтр">
                                 <span class="remove-filter-item__value button-toggle__label remove_all"
                                       data-url="<?= $data_url ?>">
-                                    <?= $key . ': ' . $value["MIN"] . " - " . $value["MAX"] ?>
+                                    <?= (trim($key) === "Типовые правила продаж" ? "Цена" : $key) . ': ' . $value["MIN"] . " - " . $value["MAX"] ?>
                                     <span class="remove-filter-item__icon">×</span>
                                 </span>
                     </button>
@@ -78,11 +78,9 @@ $templateData = array(
         location.href = url;
     });
 </script>
-
 <div class="clear"></div>
 <div class="bx_filter <?= $templateData["TEMPLATE_CLASS"] ?>">
     <div class="bx_filter_section">
-        <div class="bx_filter_title">Фильтр</div>
         <form name="<? echo $arResult["FILTER_NAME"] . "_form" ?>" action="<? echo $arResult["FORM_ACTION"] ?>"
               method="get" class="smartfilter">
             <? foreach ($arResult["HIDDEN"] as $arItem): ?>
@@ -116,26 +114,24 @@ $templateData = array(
                                                 <div class="d-flex justify-content-between align-items-center mb-3">
                                                     <input
                                                             class="min-price form-control js-range-min me-1"
-                                                            type="number"
+                                                            type="text"
                                                             name="<? echo $arItem["VALUES"]["MIN"]["CONTROL_NAME"] ?>"
                                                             id="<? echo $arItem["VALUES"]["MIN"]["CONTROL_ID"] ?>"
-                                                            aria-label="Минимальная цена"
+                                                            value="<? echo $arItem["VALUES"]["MIN"]["HTML_VALUE"] ?>"
+                                                            size="5"
                                                             onkeyup="smartFilter.keyup(this)"
                                                     />
                                                     –
                                                     <input
                                                             class="max-price form-control js-range-max ms-1"
-                                                            type="number"
+                                                            type="text"
                                                             name="<? echo $arItem["VALUES"]["MAX"]["CONTROL_NAME"] ?>"
                                                             id="<? echo $arItem["VALUES"]["MAX"]["CONTROL_ID"] ?>"
-                                                            aria-label="Максимальная цена"
+                                                            value="<? echo $arItem["VALUES"]["MAX"]["HTML_VALUE"] ?>"
+                                                            size="5"
                                                             onkeyup="smartFilter.keyup(this)"
                                                     />
                                                 </div>
-                                                <div class="js-range-slider"
-                                                     data-min="<? echo $arItem["VALUES"]["MIN"]["VALUE"] ?>"
-                                                     data-max="<? echo $arItem["VALUES"]["MAX"]["VALUE"] ?>"
-                                                     data-step="1000"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -649,8 +645,8 @@ $templateData = array(
                         <br>
                         <br>
                         <button class="button w-100 bx_filter_search_reset" type="submit" id="del_filter"
-                                name="del_filter" value=""<?= GetMessage("CT_BCSF_DEL_FILTER") ?>
-                        "><?= GetMessage("CT_BCSF_DEL_FILTER") ?></button>
+                                name="del_filter" value="<?= GetMessage("CT_BCSF_DEL_FILTER") ?>"
+                        ><?= GetMessage("CT_BCSF_DEL_FILTER") ?></button>
 
 
                         <div class="bx_filter_popup_result <?= $arParams["POPUP_POSITION"] ?>"
@@ -669,5 +665,5 @@ $templateData = array(
 </div>
 
 <script type="text/javascript">
-    var smartFilter = new JCSmartFilter('<?echo CUtil::JSEscape($arResult["FORM_ACTION"])?>', '<?=CUtil::JSEscape($arParams["FILTER_VIEW_MODE"])?>', <?=CUtil::PhpToJSObject($arResult["JS_FILTER_PARAMS"])?>);
+    //var smartFilter = new JCSmartFilter('<?//echo CUtil::JSEscape($arResult["FORM_ACTION"])?>//', '<?//=CUtil::JSEscape($arParams["FILTER_VIEW_MODE"])?>//', <?//=CUtil::PhpToJSObject($arResult["JS_FILTER_PARAMS"])?>//);
 </script>

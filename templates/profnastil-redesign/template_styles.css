@@ -30,3 +30,21 @@
     right: 0;
     bottom: 0;
 }
+
+.partners__item a {
+    display: flex;
+    height: 160px;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    padding: 0.5rem;
+    border-radius: var(--big-radius);
+    border: 2px solid var(--light-gray);
+}
+.partners__item img {
+    max-height: 100%;
+}
+
+.catalog-controls__bottom .empty {
+    display: none;
+}

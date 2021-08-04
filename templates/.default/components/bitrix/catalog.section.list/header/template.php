@@ -29,8 +29,3 @@ function declOfNum($num, $titles) {
 	</span>
 </div>
 
-<!--  Section image banner  -->
-<div class="catalog__banner mb-3"
-	aria-hidden="true"
-	style="background-image: url(<?=CFile::GetPath($arResult['SECTION']['DETAIL_PICTURE'])?>);"></div>
-

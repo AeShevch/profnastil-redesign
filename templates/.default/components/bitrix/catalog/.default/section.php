@@ -34,10 +34,6 @@ $this->setFrameMode(true);
                     Фильтры
                     <span><?= count($GLOBALS['arrFilter']) ?></span>
                 </button>
-                <div class="mobile-filter-toggle__products-count">
-                    136 <br>
-                    товаров
-                </div>
 
                 <?php
                 //             Мобильные Фильтры
@@ -91,8 +87,8 @@ $this->setFrameMode(true);
                     <? $APPLICATION->ShowViewContent('filter_result'); ?>
 
                     <!-- Catalog sort -->
-                    <div class="catalog-controls__sort catalog-sort">
-                        <label class="align-center catalog-sort__label d-flex">
+                    <div class="catalog-controls__sort catalog-sort ms-auto">
+                        <label class="align-items-center catalog-sort__label d-flex">
                             Сортировать:&nbsp;
                             <span class="catalog-sort__select link">
                             <?
@@ -184,7 +180,7 @@ $this->setFrameMode(true);
                                 $sort = 'CATALOG_PRICE_7';
                             }
                             ?>
-        <select class="js-choice"
+        <select class="js-choice form-select form-select-sm"
                 data-toggler-styles-reset="true"
                 aria-label="Порядок сортировки товаров"
                 name="sort_by"
@@ -223,7 +219,7 @@ $this->setFrameMode(true);
         <div class="catalog__main row">
             <div class="col-12 mb-3 mb-lg-0 col-lg-3 " role="complementary">
                 <section class=" d-none d-lg-block js-sidebar">
-                    <div class="section section_padding js-sidebar-inner">
+                    <div class="section section_padding js-sidebar-inner pb-3">
                         <?php
                         // Фильтры
 

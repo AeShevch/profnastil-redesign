@@ -16,6 +16,11 @@
     border-color: var(--border-color);
   }
 
+  &__article {
+    font-size: 11px;
+    font-weight: 600;
+  }
+
   &__labels {
     position: absolute;
     top: var(--padding-top);
@@ -26,6 +31,7 @@
     display: flex;
     justify-content: center;
     margin-top: 2em;
+    height: 200px;
   }
 
   &__link {

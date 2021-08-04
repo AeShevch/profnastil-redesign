@@ -121,7 +121,7 @@ if (!empty($arResult['ITEMS'])) {
             CVP_BTN_MESSAGE_CLOSE: '<? echo GetMessageJS('CVP_CATALOG_BTN_MESSAGE_CLOSE') ?>'
         });
     </script>
-    <div class="container_full-width">
+    <div class="container_full-width mt-3">
         <section class="section mb-3 pb-5 pt-5">
             <div class="container">
                 <h2 class="catalog__subtitle"
@@ -168,113 +168,115 @@ if (!empty($arResult['ITEMS'])) {
                         $showImgClass = $arParams['SHOW_IMAGE'] != "Y" ? "no-imgs" : "";
 
                         ?>
-                    <li class="col-6 col-lg p-0"
-                        id="<? echo $strMainID; ?>">
-                        <article class="catalog-item">
+                        <li class="col-6 col-lg p-0"
+                            id="<? echo $strMainID; ?>">
+                            <article class="catalog-item h-100">
 
-<!--                            <div class="catalog-item__labels product-labels">-->
-<!--                                <div class="product-labels__main">-->
-<!--                                    <mark class="product-labels__item">-->
-<!--                                        Скидка 10%-->
-<!--                                    </mark>-->
-<!--                                </div>-->
-<!--                            </div>-->
-                            <div class="catalog-item__control-buttons">
-                                <?
-                                //Проверяем, есть ли данный товар в отложенных
-                                $curProductId = $arItem["ID"];
-                                $dbBasketItems = CSaleBasket::GetList(
-                                    array(
-                                        "NAME" => "ASC",
-                                        "ID" => "ASC"
-                                    ),
-                                    array(
-                                        "FUSER_ID" => CSaleBasket::GetBasketUserID(),
-                                        "LID" => SITE_ID,
-                                        "PRODUCT_ID" => $curProductId,
-                                        "ORDER_ID" => "NULL",
-                                        "DELAY" => "Y"
-                                    ),
-                                    false,
-                                    false,
-                                    array("PRODUCT_ID")
-                                );
-                                while ($arItems = $dbBasketItems->Fetch())
-                                {
-                                    $itInDelay = $arItems['PRODUCT_ID'];
-                                }
-                                ?>
-                                <button class="product-control wishbtn  <? if ( (in_array($arItem["ID"], $delaydBasketItems)) || (isset($itInDelay)) ) { echo 'in_wishlist'; } ?>"
-                                        aria-label="Добавить товар в избранное"
-                                        title="Добавить товар в избранное"
-                                        type="button"
-                                        onclick="add2wish(
-                                                '<?=$arItem["ID"]?>',
-                                                '<?=$arItem["CATALOG_PRICE_ID_7"]?>',
-                                                '<?=$arItem["CATALOG_PRICE_7"]?>',
-                                                '<?=$arItem["NAME"]?>',
-                                                '<?=$arItem["DETAIL_PAGE_URL"]?>',
-                                                this)">
-                                    <svg aria-hidden="true" width="20" height="20" >
-                                        <use xlink:href="#icon_like"></use>
+                                <!--                            <div class="catalog-item__labels product-labels">-->
+                                <!--                                <div class="product-labels__main">-->
+                                <!--                                    <mark class="product-labels__item">-->
+                                <!--                                        Скидка 10%-->
+                                <!--                                    </mark>-->
+                                <!--                                </div>-->
+                                <!--                            </div>-->
+                                <div class="catalog-item__control-buttons">
+                                    <?
+                                    //Проверяем, есть ли данный товар в отложенных
+                                    $curProductId = $arItem["ID"];
+                                    $dbBasketItems = CSaleBasket::GetList(
+                                        array(
+                                            "NAME" => "ASC",
+                                            "ID" => "ASC"
+                                        ),
+                                        array(
+                                            "FUSER_ID" => CSaleBasket::GetBasketUserID(),
+                                            "LID" => SITE_ID,
+                                            "PRODUCT_ID" => $curProductId,
+                                            "ORDER_ID" => "NULL",
+                                            "DELAY" => "Y"
+                                        ),
+                                        false,
+                                        false,
+                                        array("PRODUCT_ID")
+                                    );
+                                    while ($arItems = $dbBasketItems->Fetch()) {
+                                        $itInDelay = $arItems['PRODUCT_ID'];
+                                    }
+                                    ?>
+                                    <button class="product-control wishbtn  <? if ((in_array($arItem["ID"], $delaydBasketItems)) || (isset($itInDelay))) {
+                                        echo 'in_wishlist';
+                                    } ?>"
+                                            aria-label="Добавить товар в избранное"
+                                            title="Добавить товар в избранное"
+                                            type="button"
+                                            onclick="add2wish(
+                                                    '<?= $arItem["ID"] ?>',
+                                                    '<?= $arItem["CATALOG_PRICE_ID_7"] ?>',
+                                                    '<?= $arItem["CATALOG_PRICE_7"] ?>',
+                                                    '<?= $arItem["NAME"] ?>',
+                                                    '<?= $arItem["DETAIL_PAGE_URL"] ?>',
+                                                    this)">
+                                        <svg aria-hidden="true" width="20" height="20">
+                                            <use xlink:href="#icon_like"></use>
+                                        </svg>
+                                    </button>
+                                    <? unset($itInDelay) ?>
+                                    <? $iblockid = $arItem['IBLOCK_ID'];
+                                    $id = $arItem['ID'];
+                                    if (isset($_SESSION["CATALOG_COMPARE_LIST"][$iblockid]["ITEMS"][$id])) {
+                                        $checked = 'in_compare';
+                                    } else {
+                                        $checked = '';
+                                    } ?>
+                                    <button class="product-control <?= $checked; ?>"
+                                            id="compareid_<?= $arItem['ID']; ?>"
+                                            onclick="compare_tov(<?= $arItem['ID']; ?>);"
+                                            aria-label="Добавить товар в сравнение"
+                                            title="Добавить товар в сравнение"
+                                            type="button">
+                                        <svg aria-hidden="true" width="20" height="20">
+                                            <use xlink:href="#icon_compare"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+
+                                <!--                            --><?//echo '<pre>'; print_r($arItem); echo '</pre>';?>
+                                <a id="<? echo $arItemIDs['PICT']; ?>" href="<? echo $arItem['DETAIL_PAGE_URL']; ?>"
+                                   title="<?= $arItem['NAME'] ?>" class="catalog-item__image">
+                                    <img src="<?php echo !empty($arItem["PREVIEW_PICTURE"]["SRC"]) ? $arItem["PREVIEW_PICTURE"]["SRC"] : SITE_TEMPLATE_PATH . "/images/product-placeholder.jpeg" ?>"
+                                         aria-labelledby="catalog-item-title-0" alt="<?= $arItem['NAME'] ?>"
+                                         loading="lazy" width="206" height="160">
+                                </a>
+
+
+                                <a href="<?= $arItem['DETAIL_PAGE_URL'] ?>" class="catalog-item__link mb-3"
+                                   title="<?= $arItem['NAME'] ?>">
+                                    <h3 class="catalog-item__title"
+                                        id="catalog-item-title-0"><?= $arItem['NAME'] ?></h3>
+                                </a>
+
+
+                                <div class="catalog-item__prices mb-3 mt-auto">
+                                    <? if ($arItem['ITEM_PRICES'][0]['PRINT_RATIO_PRICE'] != $arItem['ITEM_PRICES'][0]['PRINT_RATIO_BASE_PRICE']): ?>
+                                        <span class="catalog-item__price-old"><?= $arItem['ITEM_PRICES'][0]['PRINT_RATIO_BASE_PRICE'] ?></span>
+                                        <span class="catalog-item__price-main"><?= $arItem['ITEM_PRICES'][0]['PRINT_RATIO_PRICE'] ?></span>
+                                    <? else: ?>
+                                        <span class="catalog-item__price-main"><?= $arItem['ITEM_PRICES'][0]['PRINT_RATIO_PRICE'] ?></span>
+
+                                    <?endif; ?>
+                                </div>
+                                <button class="catalog-item__add-to-cart button w-100"
+                                        id="<? echo $arItemIDs['BUY_LINK']; ?>"
+                                        type="submit"
+                                        name="<? echo $arParams["ACTION_VARIABLE"] . "ADD2BASKET" ?>"
+                                        aria-label="Добавить в корзину">
+                                    <svg class="me-1" width="16" height="16">
+                                        <use xlink:href="#icon_cart-thin"></use>
                                     </svg>
+                                    Купить
                                 </button>
-                                <?unset($itInDelay)?>
-                                <?$iblockid = $arItem['IBLOCK_ID'];
-                                $id=$arItem['ID'];
-                                if(isset($_SESSION["CATALOG_COMPARE_LIST"][$iblockid]["ITEMS"][$id]))
-                                {
-                                    $checked='in_compare';
-                                }
-                                else
-                                {
-                                    $checked='';
-                                }?>
-                                <button class="product-control <?=$checked;?>"
-                                        id="compareid_<?=$arItem['ID'];?>"
-                                        onclick="compare_tov(<?=$arItem['ID'];?>);"
-                                        aria-label="Добавить товар в сравнение"
-                                        title="Добавить товар в сравнение"
-                                        type="button">
-                                    <svg aria-hidden="true" width="20" height="20">
-                                        <use xlink:href="#icon_compare"></use>
-                                    </svg>
-                                </button>
-                            </div>
-
-<!--                            --><?//echo '<pre>'; print_r($arItem); echo '</pre>';?>
-                            <a id="<? echo $arItemIDs['PICT']; ?>" href="<? echo $arItem['DETAIL_PAGE_URL']; ?>" title="<?=$arItem['NAME']?>" class="catalog-item__image">
-                                <img src="<?=$arItem['PREVIEW_PICTURE']['SRC']?>" aria-labelledby="catalog-item-title-0" alt="<?=$arItem['NAME']?>" loading="lazy" width="206" height="160">
-                            </a>
-
-
-
-                            <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="catalog-item__link mb-3" title="<?=$arItem['NAME']?>">
-                                <h3 class="catalog-item__title" id="catalog-item-title-0"><?=$arItem['NAME']?></h3>
-                            </a>
-
-
-                            <div class="catalog-item__prices mb-3">
-                                <?if($arItem['ITEM_PRICES'][0]['PRINT_RATIO_PRICE'] != $arItem['ITEM_PRICES'][0]['PRINT_RATIO_BASE_PRICE']):?>
-                                    <span class="catalog-item__price-old"><?=$arItem['ITEM_PRICES'][0]['PRINT_RATIO_BASE_PRICE']?></span>
-                                    <span class="catalog-item__price-main"><?=$arItem['ITEM_PRICES'][0]['PRINT_RATIO_PRICE']?></span>
-                                <?else:?>
-                                    <span class="catalog-item__price-main"><?=$arItem['ITEM_PRICES'][0]['PRINT_RATIO_PRICE']?></span>
-
-                                <?endif;?>
-                            </div>
-                            <button class="catalog-item__add-to-cart button w-100"
-                                    id="<? echo $arItemIDs['BUY_LINK']; ?>"
-                                    type="submit"
-                                    name="<? echo $arParams["ACTION_VARIABLE"] . "ADD2BASKET" ?>"
-                                    aria-label="Добавить в корзину">
-                                <svg class="me-1" width="16" height="16">
-                                    <use xlink:href="#icon_cart-thin"></use>
-                                </svg>
-                                Купить
-                            </button>
                             </article>
-                    </li>
+                        </li>
                         <?
                     }
                     unset($elementDeleteParams, $elementDelete, $elementEdit);

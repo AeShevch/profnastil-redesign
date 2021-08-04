@@ -7,7 +7,7 @@ $this->setFrameMode(true);
 ?>
 
 <form class="search-form" name="search-form" action="<?= $arResult["FORM_ACTION"]; ?>">
-  <input class="search-form__input form-control" type="search"
+  <input class="search-form__input form-control h-100" type="search"
          required
          name="q" placeholder="Найти"
          aria-label="Поиск по сайту">

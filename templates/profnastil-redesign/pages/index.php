@@ -461,103 +461,145 @@
     ?>
 </div>
 
-<section class="page-description">
-    <div class="container">
-        <h2 class="page-description__title">
-            О компании
-        </h2>
-        <div class="page-description__content">
-            Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезызвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.
-            По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.
-
-            Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.
-            Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезызвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.
-            По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.
-
-            Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.
-        </div>
-    </div>
-</section>
+<!--<section class="page-description">-->
+<!--    <div class="container">-->
+<!--        <h2 class="page-description__title">-->
+<!--            О компании-->
+<!--        </h2>-->
+<!--        <div class="page-description__content">-->
+<!--            Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезызвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.-->
+<!--            По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.-->
+<!---->
+<!--            Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.-->
+<!--            Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезызвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.-->
+<!--            По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых клиентов недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.-->
+<!---->
+<!--            Рыбатекст используется дизайнерами, проектировщиками и фронтендерами, когда нужно быстро заполнить макеты или прототипы содержимым. Это тестовый контент, который не должен нести никакого смысла, лишь показать наличие самого текста или продемонстрировать типографику в деле.-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</section>-->
 
 <section class="pt-4 pb-4">
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-9 order-1 order-md-0">
+<!--                --><?//
+//                // Главный слайдер
+//                $APPLICATION->IncludeComponent(
+//                    "bitrix:news.list",
+//                    "shop-main-slider",
+//                    [
+//                        "DISPLAY_DATE" => "Y",
+//                        "DISPLAY_NAME" => "Y",
+//                        "DISPLAY_PICTURE" => "Y",
+//                        "DISPLAY_PREVIEW_TEXT" => "Y",
+//                        "AJAX_MODE" => "N",
+//                        "IBLOCK_TYPE" => "content",
+//                        "IBLOCK_ID" => Site::getIblockIdByCode('sl_home_page'),
+//                        "NEWS_COUNT" => "20",
+//                        "SORT_BY1" => "ACTIVE_FROM",
+//                        "SORT_ORDER1" => "DESC",
+//                        "SORT_BY2" => "SORT",
+//                        "SORT_ORDER2" => "ASC",
+//                        "FILTER_NAME" => "",
+//                        "FIELD_CODE" => ["DETAIL_PICTURE"],
+//                        "PROPERTY_CODE" => ["LINK", ""],
+//                        "CHECK_DATES" => "Y",
+//                        "DETAIL_URL" => "",
+//                        "PREVIEW_TRUNCATE_LEN" => "",
+//                        "ACTIVE_DATE_FORMAT" => "d.m.Y",
+//                        "SET_TITLE" => "N",
+//                        "SET_BROWSER_TITLE" => "N",
+//                        "SET_META_KEYWORDS" => "N",
+//                        "SET_META_DESCRIPTION" => "N",
+//                        "SET_LAST_MODIFIED" => "N",
+//                        "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
+//                        "ADD_SECTIONS_CHAIN" => "N",
+//                        "HIDE_LINK_WHEN_NO_DETAIL" => "Y",
+//                        "PARENT_SECTION" => "",
+//                        "PARENT_SECTION_CODE" => "",
+//                        "INCLUDE_SUBSECTIONS" => "Y",
+//                        "CACHE_TYPE" => "A",
+//                        "CACHE_TIME" => "3600",
+//                        "CACHE_FILTER" => "Y",
+//                        "CACHE_GROUPS" => "N",
+//                        "DISPLAY_TOP_PAGER" => "N",
+//                        "DISPLAY_BOTTOM_PAGER" => "N",
+//                        "PAGER_TITLE" => "Новости",
+//                        "PAGER_SHOW_ALWAYS" => "Y",
+//                        "PAGER_TEMPLATE" => "",
+//                        "PAGER_DESC_NUMBERING" => "Y",
+//                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
+//                        "PAGER_SHOW_ALL" => "Y",
+//                        "PAGER_BASE_LINK_ENABLE" => "Y",
+//                        "SET_STATUS_404" => "Y",
+//                        "SHOW_404" => "Y",
+//                        "MESSAGE_404" => "",
+//                        "PAGER_BASE_LINK" => "",
+//                        "PAGER_PARAMS_NAME" => "arrPager",
+//                        "AJAX_OPTION_JUMP" => "N",
+//                        "AJAX_OPTION_STYLE" => "Y",
+//                        "AJAX_OPTION_HISTORY" => "N",
+//                        "AJAX_OPTION_ADDITIONAL" => "",
+//                    ]
+//                );
+//                ?>
                 <?
-                // Главный слайдер
-                $APPLICATION->IncludeComponent(
-                    "bitrix:news.list",
-                    "shop-main-slider",
-                    [
-                        "DISPLAY_DATE" => "Y",
-                        "DISPLAY_NAME" => "Y",
-                        "DISPLAY_PICTURE" => "Y",
-                        "DISPLAY_PREVIEW_TEXT" => "Y",
-                        "AJAX_MODE" => "N",
-                        "IBLOCK_TYPE" => "content",
-                        "IBLOCK_ID" => Site::getIblockIdByCode('sl_home_page'),
-                        "NEWS_COUNT" => "20",
-                        "SORT_BY1" => "ACTIVE_FROM",
-                        "SORT_ORDER1" => "DESC",
-                        "SORT_BY2" => "SORT",
-                        "SORT_ORDER2" => "ASC",
-                        "FILTER_NAME" => "",
-                        "FIELD_CODE" => ["DETAIL_PICTURE"],
-                        "PROPERTY_CODE" => ["LINK", ""],
-                        "CHECK_DATES" => "Y",
-                        "DETAIL_URL" => "",
-                        "PREVIEW_TRUNCATE_LEN" => "",
-                        "ACTIVE_DATE_FORMAT" => "d.m.Y",
-                        "SET_TITLE" => "N",
-                        "SET_BROWSER_TITLE" => "N",
-                        "SET_META_KEYWORDS" => "N",
-                        "SET_META_DESCRIPTION" => "N",
-                        "SET_LAST_MODIFIED" => "N",
-                        "INCLUDE_IBLOCK_INTO_CHAIN" => "N",
-                        "ADD_SECTIONS_CHAIN" => "N",
-                        "HIDE_LINK_WHEN_NO_DETAIL" => "Y",
-                        "PARENT_SECTION" => "",
-                        "PARENT_SECTION_CODE" => "",
-                        "INCLUDE_SUBSECTIONS" => "Y",
-                        "CACHE_TYPE" => "A",
-                        "CACHE_TIME" => "3600",
-                        "CACHE_FILTER" => "Y",
-                        "CACHE_GROUPS" => "N",
-                        "DISPLAY_TOP_PAGER" => "N",
-                        "DISPLAY_BOTTOM_PAGER" => "N",
-                        "PAGER_TITLE" => "Новости",
-                        "PAGER_SHOW_ALWAYS" => "Y",
-                        "PAGER_TEMPLATE" => "",
-                        "PAGER_DESC_NUMBERING" => "Y",
-                        "PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
-                        "PAGER_SHOW_ALL" => "Y",
-                        "PAGER_BASE_LINK_ENABLE" => "Y",
-                        "SET_STATUS_404" => "Y",
-                        "SHOW_404" => "Y",
-                        "MESSAGE_404" => "",
-                        "PAGER_BASE_LINK" => "",
-                        "PAGER_PARAMS_NAME" => "arrPager",
-                        "AJAX_OPTION_JUMP" => "N",
-                        "AJAX_OPTION_STYLE" => "Y",
-                        "AJAX_OPTION_HISTORY" => "N",
-                        "AJAX_OPTION_ADDITIONAL" => "",
-                    ]
-                );
+                if (CModule::IncludeModule("iblock")):
+                // ID инфоблока из которого выводим элементы
+                $iblock_id = 107;
+                $my_slider = CIBlockElement::GetList(
+                // Сортировка элементов
+                    array("ID" => "ASC"),
+                    array("IBLOCK_ID" => $iblock_id, "ACTIVE" => "Y", "ACTIVE_DATE" => "Y"),
+                    // Перечисляесм все свойства элементов, которые планируем выводить
+                    array('PROPERTY_IMG_SVG','PROPERTY_MODAL_CONTENT','PROPERTY_TITLE','DETAIL_TEXT','DETAIL_TEXT_TYPE')    );
+                if ($ar_fields = $my_slider->GetNext()) : ?>
+                <?
+                //Выводим элемент с залаными свойствами + верстка
+                $img_path = CFile::GetPath($ar_fields['PROPERTY_IMG_SVG_VALUE']);
+
                 ?>
+
+                <? if ($ar_fields['PROPERTY_MODAL_CONTENT_VALUE']=="Баннер") { ?>
+                    <div id="overlay" class="js-overlay-campaign">
+                        <div class="popup_img js-popup-campaign">
+                            <img src="<? echo $img_path ?>"/>
+                            <button class="spsb">Больше не показывать</button>
+                            <div class="close-popup_img js-close-campaign"></div>
+                        </div>
+
+                    </div>
+                <? }
+                elseif ($ar_fields['PROPERTY_MODAL_CONTENT_VALUE']=="Текстовое сообщение") { ?>
+                <div id="overlay" class="js-overlay-campaign">
+                    <div class="popup_img popup-text js-popup-campaign">
+
+                        <div class="popup-title"><?echo $ar_fields['PROPERTY_TITLE_VALUE']?></div>
+                        <div class="popup-content">
+                            <div class="popup-subtitle"><?echo $ar_fields['DETAIL_TEXT']?></div>
+                            <button class="spsb">Больше не показывать</button>
+                        </div>
+                        <div class="close-popup_img js-close-campaign"></div>
+                    </div>
+                    <? } ?>
+
+                    <? endif; ?>
+                    <? endif; ?>
             </div>
-            <div class="col-12 col-md-3 d-flex order-0 order-md-1 mb-4 mb-md-0">
-                <a href="" title="Перейти к странице акции" class="sale-banner">
-                    <img src="<?= SITE_TEMPLATE_PATH ?>/images/demo/banner.png" alt="" class="sale-banner__image">
-                    <span class="sale-banner__content p-2 p-md-0">
-                        <span class="sale-banner__title">
-                            Время действия акции:
-                        </span>
-                        <span class="sale-banner__time">
-                            с 01.11 по 31.11
-                        </span>
-                    </span>
-                </a>
-            </div>
+<!--            <div class="col-12 col-md-3 d-flex order-0 order-md-1 mb-4 mb-md-0">-->
+<!--                <a href="" title="Перейти к странице акции" class="sale-banner">-->
+<!--                    <img src="--><?//= SITE_TEMPLATE_PATH ?><!--/images/demo/banner.png" alt="" class="sale-banner__image">-->
+<!--                    <span class="sale-banner__content p-2 p-md-0">-->
+<!--                        <span class="sale-banner__title">-->
+<!--                            Время действия акции:-->
+<!--                        </span>-->
+<!--                        <span class="sale-banner__time">-->
+<!--                            с 01.11 по 31.11-->
+<!--                        </span>-->
+<!--                    </span>-->
+<!--                </a>-->
+<!--            </div>-->
         </div>
     </div>
 </section>

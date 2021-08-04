@@ -18,12 +18,7 @@
                         type="button"></button>
             </div>
             <div class="modal-body">
-                <? $APPLICATION->IncludeComponent(
-                    "bitrix:catalog.smart.filter",
-                    "profnastil",
-                    array_merge($arParams, ["IS_MOBILE" => true]),
-                    $component
-                ); ?>
+                <? $APPLICATION->IncludeComponent("bitrix:catalog.smart.filter", "profnastil", array("IS_MOBILE" => true,), [], false); ?>
             </div>
             <div class="mobile-filter-wrap__footer modal-footer">
                 <button class="mobile-filter-wrap__submit button"
